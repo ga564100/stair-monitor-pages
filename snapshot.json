@@ -1,0 +1,230 @@
+{
+  "automaticTrading": false,
+  "generatedAtUtc": "2026-10-17T01:35:59.592242+00:00",
+  "livePitCertified": false,
+  "markets": {
+    "TW": {
+      "currentVerification": "NOT_BOOTSTRAPPED",
+      "dataAsOf": "2026-10-16",
+      "etf": "00631L",
+      "etfPrice": {
+        "asOf": "2026-10-16",
+        "lastClose": 37.15
+      },
+      "formalAlarm": "NOT_CERTIFIED",
+      "index": "TW50",
+      "indexPrice": {
+        "asOf": "2026-10-16",
+        "lastClose": 43347.41
+      },
+      "observationPolicy": "S0",
+      "observationStatus": "LATEST_ASOF_OBSERVATION",
+      "ownerObservedPolicy": null,
+      "ownerObservedRevision": null,
+      "performance": {
+        "B50": {
+          "10Y": {
+            "cagr": 0.22841012,
+            "mdd": -0.29950405
+          },
+          "1Y": null,
+          "3Y": null,
+          "5Y": {
+            "cagr": 0.24248619,
+            "mdd": -0.29950405
+          },
+          "FULL": {
+            "cagr": 0.19927686,
+            "mdd": -0.29950405
+          },
+          "OOS": {
+            "cagr": 0.26966436,
+            "mdd": -0.29950405
+          }
+        },
+        "B70": {
+          "10Y": {
+            "cagr": 0.31053337,
+            "mdd": -0.40526991
+          },
+          "1Y": null,
+          "3Y": null,
+          "5Y": {
+            "cagr": 0.33369846,
+            "mdd": -0.40526991
+          },
+          "FULL": {
+            "cagr": 0.26985955,
+            "mdd": -0.40526991
+          },
+          "OOS": {
+            "cagr": 0.36611323,
+            "mdd": -0.40526991
+          }
+        },
+        "S0": {
+          "10Y": {
+            "cagr": 0.42947561,
+            "mdd": -0.3986451
+          },
+          "1Y": null,
+          "3Y": null,
+          "5Y": {
+            "cagr": 0.51421805,
+            "mdd": -0.3986451
+          },
+          "FULL": {
+            "cagr": 0.37607894,
+            "mdd": -0.3986451
+          },
+          "OOS": {
+            "cagr": 0.57073094,
+            "mdd": -0.3986451
+          }
+        },
+        "S50": {
+          "10Y": {
+            "cagr": 0.42641226,
+            "mdd": -0.45466421
+          },
+          "1Y": null,
+          "3Y": null,
+          "5Y": {
+            "cagr": 0.49018204,
+            "mdd": -0.45466421
+          },
+          "FULL": {
+            "cagr": 0.37168276,
+            "mdd": -0.45466421
+          },
+          "OOS": {
+            "cagr": 0.53319298,
+            "mdd": -0.45466421
+          }
+        }
+      },
+      "researchAvailable": true,
+      "stairSignal": {
+        "asOf": "2026-10-16",
+        "mode": "FROZEN_HISTORICAL_RESEARCH_ONLY",
+        "riskClose": false,
+        "transition": "NO_NEW_TRANSITION"
+      },
+      "verifiedCurrent": null
+    },
+    "US": {
+      "currentVerification": "NOT_BOOTSTRAPPED",
+      "dataAsOf": "2026-10-16",
+      "etf": "QLD",
+      "etfPrice": {
+        "asOf": "2026-10-16",
+        "lastClose": 87.72
+      },
+      "formalAlarm": "NOT_CERTIFIED",
+      "index": "NASDAQ100",
+      "indexPrice": {
+        "asOf": "2026-10-16",
+        "lastClose": 29187.5488
+      },
+      "observationPolicy": "S50",
+      "observationStatus": "LATEST_ASOF_OBSERVATION",
+      "ownerObservedPolicy": null,
+      "ownerObservedRevision": null,
+      "performance": {
+        "B50": {
+          "10Y": {
+            "cagr": 0.18029406,
+            "mdd": -0.35448997
+          },
+          "1Y": null,
+          "3Y": null,
+          "5Y": {
+            "cagr": 0.11701689,
+            "mdd": -0.35448997
+          },
+          "FULL": {
+            "cagr": 0.14512801,
+            "mdd": -0.526063
+          },
+          "OOS": {
+            "cagr": 0.16736693,
+            "mdd": -0.35448997
+          }
+        },
+        "B70": {
+          "10Y": {
+            "cagr": 0.24417026,
+            "mdd": -0.47588937
+          },
+          "1Y": null,
+          "3Y": null,
+          "5Y": {
+            "cagr": 0.14897964,
+            "mdd": -0.47588937
+          },
+          "FULL": {
+            "cagr": 0.19246912,
+            "mdd": -0.67106017
+          },
+          "OOS": {
+            "cagr": 0.22316626,
+            "mdd": -0.47588937
+          }
+        },
+        "S0": {
+          "10Y": {
+            "cagr": 0.25296397,
+            "mdd": -0.58294812
+          },
+          "1Y": null,
+          "3Y": null,
+          "5Y": {
+            "cagr": 0.13657063,
+            "mdd": -0.58294812
+          },
+          "FULL": {
+            "cagr": 0.20605265,
+            "mdd": -0.58294812
+          },
+          "OOS": {
+            "cagr": 0.21075312,
+            "mdd": -0.58294812
+          }
+        },
+        "S50": {
+          "10Y": {
+            "cagr": 0.29350364,
+            "mdd": -0.6009202
+          },
+          "1Y": null,
+          "3Y": null,
+          "5Y": {
+            "cagr": 0.16003039,
+            "mdd": -0.6009202
+          },
+          "FULL": {
+            "cagr": 0.23643702,
+            "mdd": -0.65530456
+          },
+          "OOS": {
+            "cagr": 0.25434819,
+            "mdd": -0.6009202
+          }
+        }
+      },
+      "researchAvailable": true,
+      "stairSignal": {
+        "asOf": "2026-10-16",
+        "mode": "FROZEN_HISTORICAL_RESEARCH_ONLY",
+        "riskClose": false,
+        "transition": "NO_NEW_TRANSITION"
+      },
+      "verifiedCurrent": null
+    }
+  },
+  "mode": "OBSERVATION_ONLY",
+  "privatePolicyWriteEnabled": false,
+  "publishedFrom": "PRIVATE_MAIN_VERIFIED_OBSERVATION",
+  "schema": "STAIR_PUBLIC_OBSERVATION_V1",
+  "snapshotId": "6454a0d2a61c605fa7c5f255"
+}
