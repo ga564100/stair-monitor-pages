@@ -1,0 +1,45 @@
+name: Pages HTTP JSON smoke
+on:
+  push:
+    paths:
+      - .github/workflows/pages-http-smoke.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  public-http-readback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Verify anonymous HTTPS HTML and JSON
+        shell: bash
+        run: |
+          set -euo pipefail
+          root="https://ga564100.github.io/stair-monitor-pages"
+          curl -fsSL --retry 6 --retry-delay 3 --retry-all-errors --connect-timeout 8 --max-time 30 \
+            "$root/?smoke=${GITHUB_RUN_ID}" -o /tmp/index.html
+          curl -fsSL --retry 6 --retry-delay 3 --retry-all-errors --connect-timeout 8 --max-time 30 \
+            "$root/snapshot.json?smoke=${GITHUB_RUN_ID}" -o /tmp/snapshot.json
+          python - <<'PY'
+          import json, re
+          from pathlib import Path
+          html = Path("/tmp/index.html").read_text(encoding="utf-8")
+          raw = Path("/tmp/snapshot.json").read_bytes()
+          assert html.lower().lstrip().startswith("<!doctype html>"), "HTML failed"
+          assert 'fetch("./snapshot.json"' in html, "relative public JSON fetch missing"
+          assert b"ghp_" not in raw and b"github_pat_" not in raw, "secret-looking string"
+          assert len(raw) < 16000, "JSON not minimal"
+          snap = json.loads(raw)
+          assert snap["schema"] == "STAIR_PUBLIC_OBSERVATION_V1"
+          assert snap["mode"] == "OBSERVATION_ONLY"
+          assert snap["livePitCertified"] is False
+          assert snap["automaticTrading"] is False
+          assert snap["privatePolicyWriteEnabled"] is False
+          assert set(snap["markets"]) == {"TW", "US"}
+          for market in snap["markets"].values():
+              assert market["verifiedCurrent"] is None
+              assert market["formalAlarm"] == "NOT_CERTIFIED"
+              assert re.fullmatch(r"\d{4}-\d{2}-\d{2}", market["indexPrice"]["asOf"])
+              assert re.fullmatch(r"\d{4}-\d{2}-\d{2}", market["etfPrice"]["asOf"])
+          print("ANONYMOUS_GITHUB_PAGES_HTTP_JSON_SMOKE_PASS", snap["snapshotId"], len(raw))
+          PY
