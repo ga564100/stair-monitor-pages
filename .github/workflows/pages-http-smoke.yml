@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - .github/workflows/pages-http-smoke.yml
+      - snapshot.json
   workflow_dispatch:
 permissions:
   contents: read
@@ -11,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Verify anonymous HTTPS HTML and JSON
         shell: bash
         run: |
@@ -18,8 +22,27 @@ jobs:
           root="https://ga564100.github.io/stair-monitor-pages"
           curl -fsSL --retry 6 --retry-delay 3 --retry-all-errors --connect-timeout 8 --max-time 30 \
             "$root/?smoke=${GITHUB_RUN_ID}" -o /tmp/index.html
-          curl -fsSL --retry 6 --retry-delay 3 --retry-all-errors --connect-timeout 8 --max-time 30 \
-            "$root/snapshot.json?smoke=${GITHUB_RUN_ID}" -o /tmp/snapshot.json
+          expected=$(python - <<'PY'
+          import json
+          print(json.load(open('snapshot.json',encoding='utf8'))['snapshotId'])
+          PY
+          )
+          observed=''
+          for attempt in $(seq 1 15); do
+            curl -fsSL --retry 2 --retry-delay 2 --connect-timeout 8 --max-time 30 \
+              "$root/snapshot.json?smoke=${GITHUB_RUN_ID}-${attempt}" -o /tmp/snapshot.json || true
+            observed=$(python - <<'PY'
+          import json
+          try: print(json.load(open('/tmp/snapshot.json',encoding='utf8')).get('snapshotId',''))
+          except Exception: print('')
+          PY
+          )
+            if [ "$observed" = "$expected" ]; then break; fi
+            echo "PAGES_WAIT_SOURCE_MATCH attempt=$attempt"
+            sleep 12
+          done
+          test "$observed" = "$expected" || { echo "::error::GitHub Pages still served stale snapshot"; exit 1; }
+          echo "PAGES_MATCH_SOURCE_ID $observed"
           python - <<'PY'
           import json, re
           from pathlib import Path
