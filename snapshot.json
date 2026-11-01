@@ -4,8 +4,9 @@
   "livePitCertified": false,
   "markets": {
     "TW": {
+      "calendarExceptionResearch": true,
       "currentVerification": "NOT_BOOTSTRAPPED",
-      "dataAsOf": null,
+      "dataAsOf": "2026-10-30",
       "etf": "00631L",
       "etfPrice": {
         "asOf": "2026-10-30",
@@ -22,44 +23,118 @@
       "ownerObservedPolicy": null,
       "ownerObservedRevision": null,
       "performance": {
-        "B50": {
-          "10Y": null,
+        "B100": {
+          "10Y": {
+            "cagr": 0.40298023,
+            "mdd": -0.55143668
+          },
           "1Y": null,
           "3Y": null,
-          "5Y": null,
-          "FULL": null,
-          "OOS": null
+          "5Y": {
+            "cagr": 0.42561986,
+            "mdd": -0.55143668
+          },
+          "FULL": {
+            "cagr": 0.35179956,
+            "mdd": -0.55143668
+          },
+          "OOS": {
+            "cagr": 0.46916886,
+            "mdd": -0.55143668
+          }
+        },
+        "B50": {
+          "10Y": {
+            "cagr": 0.22121606,
+            "mdd": -0.29950405
+          },
+          "1Y": null,
+          "3Y": null,
+          "5Y": {
+            "cagr": 0.22782791,
+            "mdd": -0.29950405
+          },
+          "FULL": {
+            "cagr": 0.19455769,
+            "mdd": -0.29950405
+          },
+          "OOS": {
+            "cagr": 0.26049184,
+            "mdd": -0.29950405
+          }
         },
         "B70": {
-          "10Y": null,
+          "10Y": {
+            "cagr": 0.29989497,
+            "mdd": -0.40526991
+          },
           "1Y": null,
           "3Y": null,
-          "5Y": null,
-          "FULL": null,
-          "OOS": null
+          "5Y": {
+            "cagr": 0.31137507,
+            "mdd": -0.40526991
+          },
+          "FULL": {
+            "cagr": 0.26283907,
+            "mdd": -0.40526991
+          },
+          "OOS": {
+            "cagr": 0.35231066,
+            "mdd": -0.40526991
+          }
         },
         "S0": {
-          "10Y": null,
+          "10Y": {
+            "cagr": 0.41306525,
+            "mdd": -0.3986451
+          },
           "1Y": null,
           "3Y": null,
-          "5Y": null,
-          "FULL": null,
-          "OOS": null
+          "5Y": {
+            "cagr": 0.48682982,
+            "mdd": -0.3986451
+          },
+          "FULL": {
+            "cagr": 0.36509526,
+            "mdd": -0.3986451
+          },
+          "OOS": {
+            "cagr": 0.54761016,
+            "mdd": -0.3986451
+          }
         },
         "S50": {
-          "10Y": null,
+          "10Y": {
+            "cagr": 0.41003707,
+            "mdd": -0.45466421
+          },
           "1Y": null,
           "3Y": null,
-          "5Y": null,
-          "FULL": null,
-          "OOS": null
+          "5Y": {
+            "cagr": 0.45850636,
+            "mdd": -0.45466421
+          },
+          "FULL": {
+            "cagr": 0.36074808,
+            "mdd": -0.45466421
+          },
+          "OOS": {
+            "cagr": 0.51082996,
+            "mdd": -0.45466421
+          }
         }
       },
-      "researchAvailable": false,
-      "stairSignal": null,
+      "researchAvailable": true,
+      "stairSignal": {
+        "asOf": "2026-10-30",
+        "mode": "FROZEN_HISTORICAL_RESEARCH_ONLY",
+        "riskClose": false,
+        "transition": "NO_NEW_TRANSITION"
+      },
       "verifiedCurrent": null
     },
     "US": {
+      "calendarExceptionResearch": false,
       "currentVerification": "NOT_BOOTSTRAPPED",
       "dataAsOf": "2026-10-30",
       "etf": "QLD",
@@ -78,6 +153,26 @@
       "ownerObservedPolicy": null,
       "ownerObservedRevision": null,
       "performance": {
+        "B100": {
+          "10Y": {
+            "cagr": 0.31969071,
+            "mdd": -0.63684476
+          },
+          "1Y": null,
+          "3Y": null,
+          "5Y": {
+            "cagr": 0.14489293,
+            "mdd": -0.63684476
+          },
+          "FULL": {
+            "cagr": 0.24318466,
+            "mdd": -0.83128866
+          },
+          "OOS": {
+            "cagr": 0.27732583,
+            "mdd": -0.63684476
+          }
+        },
         "B50": {
           "10Y": {
             "cagr": 0.17634743,
@@ -173,5 +268,5 @@
   "privatePolicyWriteEnabled": false,
   "publishedFrom": "PRIVATE_MAIN_VERIFIED_OBSERVATION",
   "schema": "STAIR_PUBLIC_OBSERVATION_V1",
-  "snapshotId": "2e14847221f0fafca0f73669"
+  "snapshotId": "5921eb43136b8de94f24093b"
 }

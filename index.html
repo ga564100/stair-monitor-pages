@@ -65,7 +65,7 @@
 <div class="top-actions"><span class="mock-pill">私人 GitHub 運算 / Vercel 僅顯示</span></div></header>
 <div class="layout">
 <aside class="side"><div><div class="side-section">五大模組</div><nav aria-label="五個畫面">
-<a href="#ui01">UI01｜市場總覽</a><a href="#ui02">UI02｜階梯警報觀察</a><a href="#ui03">UI03｜四策略比較</a><a href="#ui04">UI04｜資料證據</a><a href="#ui05">UI05｜私人策略管理</a>
+<a href="#ui01">UI01｜市場總覽</a><a href="#ui02">UI02｜階梯警報觀察</a><a href="#ui03">UI03｜五策略比較（B100 僅參考）</a><a href="#ui04">UI04｜資料證據</a><a href="#ui05">UI05｜私人策略管理</a>
 </nav></div><div class="tiny-panel"><strong>本頁僅供觀察</strong><p>沒有正式 Live/PIT 認證時，不宣稱已發出正式失效警報、也不是交易指令。</p></div></aside>
 <main class="main">
 <section class="section" id="ui01"><div class="hero"><div class="hero-kicker">MARKET OBSERVATION</div>
@@ -81,11 +81,11 @@
 <section class="section" id="ui02"><div class="section-title"><h2>UI02｜V9.3 階梯警報</h2><small>正式警報認證與每日觀察分開</small></div>
 <div class="safe-alert"><strong>目前正式 Live/PIT 警報：尚未認證</strong><p>不能將研究回放誤當真實失效警報；沒有正式警報也不表示市場健康。</p></div>
 <div class="safe-panel safe-cols"><div class="safe-item"><h3>台灣觀察與資料品質</h3><p id="tw-gate">—</p><p id="tw-signal" class="safe-note">階梯研究訊號：—</p></div><div class="safe-item"><h3>美國觀察與資料品質</h3><p id="us-gate">—</p><p id="us-signal" class="safe-note">階梯研究訊號：—</p></div></div></section>
-<section class="section" id="ui03"><div class="section-title"><h2>UI03｜S0／S50／B70／B50 績效比較</h2><small>原 Frozen 研究；不補不存在的數字</small></div>
+<section class="section" id="ui03"><div class="section-title"><h2>UI03｜S0／S50／B70／B50／B100 績效比較</h2><small>原 Frozen 研究；B100 僅供長抱比較，不參與策略選擇；不補不存在的數字</small></div>
 <div class="safe-panel"><label for="market">市場：</label> <select id="market"><option value="TW">台灣 00631L</option><option value="US">美國 QLD</option></select>
 <div class="safe-scroll"><table class="safe-table" aria-label="四策略六期間績效表"><thead><tr><th>策略</th><th>1Y CAGR／MDD</th><th>3Y</th><th>5Y</th><th>10Y</th><th>全歷史</th><th>OOS</th></tr></thead>
 <tbody id="performance"><tr><td colspan="7">載入中</td></tr></tbody></table></div>
-<p class="safe-note">CAGR / MDD 已反映來源內的研究假設；不是個人實際帳戶績效或可直接下單訊號。</p></div></section>
+<p class="safe-note">CAGR / MDD 已反映來源內的研究假設；B100 是長抱參考，不能選為 Current。台股若以 10/23 官方颱風休市作獨立日曆校正，僅補歷史研究績效，原版營運阻擋與正式警報認證仍分開；不是個人實際帳戶績效或可直接下單訊號。</p></div></section>
 <section class="section" id="ui04"><div class="section-title"><h2>UI04｜資料證據與更新狀態</h2><small>公開摘要，不包含私人底層資料</small></div>
 <div class="safe-panel"><div class="safe-cols"><div class="safe-item"><span class="safe-note">快照識別碼</span><b id="snapshot-id">—</b></div><div class="safe-item"><span class="safe-note">主庫產出時間</span><b id="generated-at">—</b></div></div>
 <p id="message" role="status" class="safe-alert">正在讀取公開資料。資料讀取失敗時不推論監控健康。</p></div></section>
@@ -104,7 +104,7 @@ const pct=v=>v==null?"N/A":fmt(v*100)+"%";
 let snapshot=null;
 function table(){let el=$("performance");el.replaceChildren();let m=snapshot?.markets?.[$("market").value];
 if(!m){let row=el.insertRow(),cell=row.insertCell();cell.colSpan=7;cell.textContent="沒有可驗證的策略績效";return}
-for(let p of ["S0","S50","B70","B50"]){let row=el.insertRow();row.insertCell().textContent=p;
+for(let p of ["S0","S50","B70","B50","B100"]){let row=el.insertRow();row.insertCell().textContent=p==="B100"?"B100（長抱參考）":p;
 for(let w of periods){let v=m.performance?.[p]?.[w];row.insertCell().textContent=v?pct(v.cagr)+" / "+pct(v.mdd):"N/A";}}}
 function paint(d){
 if(d?.schema!=="STAIR_PUBLIC_OBSERVATION_V1"||d.mode!=="OBSERVATION_ONLY"||d.livePitCertified!==false||d.automaticTrading!==false||d.privatePolicyWriteEnabled!==false||!d.markets?.TW||!d.markets?.US)throw Error("資料未通過公開觀察格式驗證");
@@ -117,7 +117,7 @@ $(p+"-policy").textContent=selected+(v.ownerObservedPolicy?"（本人選定／�
 $(p+"-date").textContent="指數 "+v.indexPrice.asOf+"｜ETF "+v.etfPrice.asOf+"｜監控 "+(v.dataAsOf||"未取得");
 $(p+"-index-price").textContent=fmt(v.indexPrice.lastClose,4);
 $(p+"-etf").textContent=v.etf+"："+fmt(v.etfPrice.lastClose,4);
-$(p+"-gate").textContent=v.observationStatus+"；正式 V9.3：未認證"+(v.ownerObservedPolicy?"；已用選定策略跑研究監控":"");
+$(p+"-gate").textContent=v.observationStatus+"；正式 V9.3：未認證"+(v.calendarExceptionResearch?"；10/23官方休市已另行核對，歷史研究可用（非正式警報）":"")+(v.ownerObservedPolicy?"；已用選定策略跑研究監控":"");
 let signal=v.stairSignal;$(p+"-signal").textContent=signal?.mode==="FROZEN_HISTORICAL_RESEARCH_ONLY"?
 "原階梯研究訊號："+(signal.transition||"N/A")+"｜風險收盤："+(signal.riskClose===null?"N/A":signal.riskClose?"是":"否")+"｜"+(signal.asOf||"無日期"):"階梯研究訊號：未取得（非買賣指令）";
 }
