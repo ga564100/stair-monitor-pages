@@ -1,6 +1,6 @@
 {
   "automaticTrading": false,
-  "generatedAtUtc": "2026-11-01T03:34:07.474489+00:00",
+  "generatedAtUtc": "2026-11-01T11:19:57.147114+00:00",
   "livePitCertified": false,
   "markets": {
     "TW": {
@@ -268,5 +268,5 @@
   "privatePolicyWriteEnabled": false,
   "publishedFrom": "PRIVATE_MAIN_VERIFIED_OBSERVATION",
   "schema": "STAIR_PUBLIC_OBSERVATION_V1",
-  "snapshotId": "5921eb43136b8de94f24093b"
+  "snapshotId": "2bcacbb09032b8db840a1a25"
 }
