@@ -50,6 +50,8 @@ jobs:
           raw = Path("/tmp/snapshot.json").read_bytes()
           assert html.lower().lstrip().startswith("<!doctype html>"), "HTML failed"
           assert 'fetch("./snapshot.json"' in html, "relative public JSON fetch missing"
+          assert 'B100（長抱參考）' in html, "five-row B100 UI not served"
+          assert 'for(let p of ["S0","S50","B70","B50","B100"])' in html, "B100 browser rendering missing"
           assert b"ghp_" not in raw and b"github_pat_" not in raw, "secret-looking string"
           assert len(raw) < 16000, "JSON not minimal"
           snap = json.loads(raw)
@@ -59,6 +61,17 @@ jobs:
           assert snap["automaticTrading"] is False
           assert snap["privatePolicyWriteEnabled"] is False
           assert set(snap["markets"]) == {"TW", "US"}
+          for key in ("TW","US"):
+              v=snap["markets"][key]
+              assert set(v["performance"])=={"S0","S50","B70","B50","B100"}
+              assert all(isinstance(v["performance"][name]["FULL"],dict)
+                         and isinstance(v["performance"][name]["FULL"].get("cagr"),(float,int))
+                         for name in ("S0","S50","B70","B50","B100"))
+              assert v["formalAlarm"]=="NOT_CERTIFIED"
+          tw=snap["markets"]["TW"]
+          if tw.get("calendarExceptionResearch") is True:
+              assert tw["observationStatus"]=="DATA_BLOCKED"
+              assert tw["dataAsOf"]==tw["indexPrice"]["asOf"]==tw["etfPrice"]["asOf"]
           for market in snap["markets"].values():
               assert market["verifiedCurrent"] is None
               assert market["formalAlarm"] == "NOT_CERTIFIED"
