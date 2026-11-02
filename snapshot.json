@@ -1,22 +1,22 @@
 {
   "automaticTrading": false,
-  "generatedAtUtc": "2026-11-01T11:19:57.147114+00:00",
+  "generatedAtUtc": "2026-11-02T19:26:47.960523+00:00",
   "livePitCertified": false,
   "markets": {
     "TW": {
       "calendarExceptionResearch": true,
       "currentVerification": "NOT_BOOTSTRAPPED",
-      "dataAsOf": "2026-10-30",
+      "dataAsOf": "2026-11-02",
       "etf": "00631L",
       "etfPrice": {
-        "asOf": "2026-10-30",
-        "lastClose": 34.16
+        "asOf": "2026-11-02",
+        "lastClose": 33.83
       },
       "formalAlarm": "NOT_CERTIFIED",
       "index": "TW50",
       "indexPrice": {
-        "asOf": "2026-10-30",
-        "lastClose": 41783.92
+        "asOf": "2026-11-02",
+        "lastClose": 41411.33
       },
       "observationPolicy": "S0",
       "observationStatus": "DATA_BLOCKED",
@@ -25,108 +25,108 @@
       "performance": {
         "B100": {
           "10Y": {
-            "cagr": 0.40298023,
+            "cagr": 0.40579833,
             "mdd": -0.55143668
           },
           "1Y": null,
           "3Y": null,
           "5Y": {
-            "cagr": 0.42561986,
+            "cagr": 0.42442447,
             "mdd": -0.55143668
           },
           "FULL": {
-            "cagr": 0.35179956,
+            "cagr": 0.35042843,
             "mdd": -0.55143668
           },
           "OOS": {
-            "cagr": 0.46916886,
+            "cagr": 0.46640517,
             "mdd": -0.55143668
           }
         },
         "B50": {
           "10Y": {
-            "cagr": 0.22121606,
+            "cagr": 0.22278104,
             "mdd": -0.29950405
           },
           "1Y": null,
           "3Y": null,
           "5Y": {
-            "cagr": 0.22782791,
+            "cagr": 0.22731909,
             "mdd": -0.29950405
           },
           "FULL": {
-            "cagr": 0.19455769,
+            "cagr": 0.19395949,
             "mdd": -0.29950405
           },
           "OOS": {
-            "cagr": 0.26049184,
+            "cagr": 0.2593018,
             "mdd": -0.29950405
           }
         },
         "B70": {
           "10Y": {
-            "cagr": 0.29989497,
+            "cagr": 0.30200895,
             "mdd": -0.40526991
           },
           "1Y": null,
           "3Y": null,
           "5Y": {
-            "cagr": 0.31137507,
+            "cagr": 0.3106129,
             "mdd": -0.40526991
           },
           "FULL": {
-            "cagr": 0.26283907,
+            "cagr": 0.2619502,
             "mdd": -0.40526991
           },
           "OOS": {
-            "cagr": 0.35231066,
+            "cagr": 0.35052778,
             "mdd": -0.40526991
           }
         },
         "S0": {
           "10Y": {
-            "cagr": 0.41306525,
+            "cagr": 0.41590083,
             "mdd": -0.3986451
           },
           "1Y": null,
           "3Y": null,
           "5Y": {
-            "cagr": 0.48682982,
+            "cagr": 0.4855147,
             "mdd": -0.3986451
           },
           "FULL": {
-            "cagr": 0.36509526,
+            "cagr": 0.36370152,
             "mdd": -0.3986451
           },
           "OOS": {
-            "cagr": 0.54761016,
+            "cagr": 0.54460234,
             "mdd": -0.3986451
           }
         },
         "S50": {
           "10Y": {
-            "cagr": 0.41003707,
+            "cagr": 0.4128674,
             "mdd": -0.45466421
           },
           "1Y": null,
           "3Y": null,
           "5Y": {
-            "cagr": 0.45850636,
+            "cagr": 0.45724699,
             "mdd": -0.45466421
           },
           "FULL": {
-            "cagr": 0.36074808,
+            "cagr": 0.35936175,
             "mdd": -0.45466421
           },
           "OOS": {
-            "cagr": 0.51082996,
+            "cagr": 0.50793722,
             "mdd": -0.45466421
           }
         }
       },
       "researchAvailable": true,
       "stairSignal": {
-        "asOf": "2026-10-30",
+        "asOf": "2026-11-02",
         "mode": "FROZEN_HISTORICAL_RESEARCH_ONLY",
         "riskClose": false,
         "transition": "NO_NEW_TRANSITION"
@@ -268,5 +268,5 @@
   "privatePolicyWriteEnabled": false,
   "publishedFrom": "PRIVATE_MAIN_VERIFIED_OBSERVATION",
   "schema": "STAIR_PUBLIC_OBSERVATION_V1",
-  "snapshotId": "2bcacbb09032b8db840a1a25"
+  "snapshotId": "50fe36a486dc1f9fd771aa88"
 }
