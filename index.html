@@ -83,11 +83,11 @@
 <div class="safe-panel safe-cols"><div class="safe-item"><h3>台灣觀察與資料品質</h3><p id="tw-gate">—</p><p id="tw-signal" class="safe-note">階梯研究訊號：—</p></div><div class="safe-item"><h3>美國觀察與資料品質</h3><p id="us-gate">—</p><p id="us-signal" class="safe-note">階梯研究訊號：—</p></div></div></section>
 <section class="section" id="ui03"><div class="section-title"><h2>UI03｜S0／S50／B70／B50／B100 績效比較</h2><small>原 Frozen 研究；B100 僅供長抱比較，不參與策略選擇；不補不存在的數字</small></div>
 <div class="safe-panel"><label for="market">市場：</label> <select id="market"><option value="TW">台灣 00631L</option><option value="US">美國 QLD</option></select>
-<div class="safe-scroll"><table class="safe-table" aria-label="四策略六期間績效表"><thead><tr><th>策略</th><th>1Y CAGR／MDD</th><th>3Y</th><th>5Y</th><th>10Y</th><th>全歷史</th><th>OOS</th></tr></thead>
+<div class="safe-scroll"><table class="safe-table" aria-label="五策略六期間績效表"><thead><tr><th>策略</th><th>1Y CAGR／MDD</th><th>3Y</th><th>5Y</th><th>10Y</th><th>全歷史</th><th>OOS</th></tr></thead>
 <tbody id="performance"><tr><td colspan="7">載入中</td></tr></tbody></table></div>
 <p class="safe-note">CAGR / MDD 已反映來源內的研究假設；B100 是長抱參考，不能選為 Current。台股若以 10/23 官方颱風休市作獨立日曆校正，僅補歷史研究績效，原版營運阻擋與正式警報認證仍分開；不是個人實際帳戶績效或可直接下單訊號。</p></div></section>
 <section class="section" id="ui04"><div class="section-title"><h2>UI04｜資料證據與更新狀態</h2><small>公開摘要，不包含私人底層資料</small></div>
-<div class="safe-panel"><div class="safe-cols"><div class="safe-item"><span class="safe-note">快照識別碼</span><b id="snapshot-id">—</b></div><div class="safe-item"><span class="safe-note">主庫產出時間</span><b id="generated-at">—</b></div></div>
+<div class="safe-panel"><div class="safe-cols"><div class="safe-item"><span class="safe-note">快照識別碼</span><b id="snapshot-id">—</b></div><div class="safe-item"><span class="safe-note">主庫產出日期（台北）</span><b id="generated-date">—</b></div><div class="safe-item"><span class="safe-note">主庫產出時間（台北）</span><b id="generated-clock">—</b></div></div>
 <p id="message" role="status" class="safe-alert">正在讀取公開資料。資料讀取失敗時不推論監控健康。</p></div></section>
 <section class="section" id="ui05"><div class="section-title"><h2>UI05｜策略管理（本人操作）</h2><small>公開網站沒有修改策略權限</small></div>
 <div class="safe-panel"><p>想更換策略時，只要進入私人 GitHub，由本人第一次提案、第二次確認。網頁不需要 OAuth 或私人 API。</p>
@@ -109,6 +109,9 @@ for(let w of periods){let v=m.performance?.[p]?.[w];row.insertCell().textContent
 function paint(d){
 if(d?.schema!=="STAIR_PUBLIC_OBSERVATION_V1"||d.mode!=="OBSERVATION_ONLY"||d.livePitCertified!==false||d.automaticTrading!==false||d.privatePolicyWriteEnabled!==false||!d.markets?.TW||!d.markets?.US)throw Error("資料未通過公開觀察格式驗證");
 const t=Date.parse(d.generatedAtUtc);if(!Number.isFinite(t)||t>Date.now()+1800000)throw Error("主庫版本時間異常");
+const taipeiParts=Object.fromEntries(new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Taipei",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",hourCycle:"h23"}).formatToParts(new Date(t)).filter(p=>p.type!=="literal").map(p=>[p.type,p.value]));
+const localDate=[taipeiParts.year,taipeiParts.month,taipeiParts.day].join("-");
+const localClock=[taipeiParts.hour,taipeiParts.minute,taipeiParts.second].join(":");
 snapshot=d;const old=Date.now()-t>4*86400000;
 for(let id of ["TW","US"]){let v=d.markets[id],p=id.toLowerCase();if(!["S0","S50","B70","B50"].includes(v.observationPolicy))throw Error("策略代碼不正確");
 let selected=v.ownerObservedPolicy||v.observationPolicy;
@@ -121,14 +124,14 @@ $(p+"-gate").textContent=v.observationStatus+"；正式 V9.3：未認證"+(v.cal
 let signal=v.stairSignal;$(p+"-signal").textContent=signal?.mode==="FROZEN_HISTORICAL_RESEARCH_ONLY"?
 "原階梯研究訊號："+(signal.transition||"N/A")+"｜風險收盤："+(signal.riskClose===null?"N/A":signal.riskClose?"是":"否")+"｜"+(signal.asOf||"無日期"):"階梯研究訊號：未取得（非買賣指令）";
 }
-$("snapshot-id").textContent=d.snapshotId;$("generated-at").textContent=d.generatedAtUtc;
-$("snapshot-line").textContent="GitHub 主庫｜"+d.generatedAtUtc+"｜OBSERVATION_ONLY";
+$("snapshot-id").textContent=d.snapshotId;$("generated-date").textContent=localDate;$("generated-clock").textContent=localClock+"（UTC+8）";
+$("snapshot-line").textContent="GitHub 主庫｜"+localDate+" "+localClock+"（台北）｜OBSERVATION_ONLY";
 $("message").textContent=old?"公開快照已超過四天未更新，可能過期。請核對台美各自的資料截至日；不可推定監控健康。":"已載入已核對的公開觀察資料。正式 Live/PIT 與 Current 尚未認證。";
 table();
 }
 async function refresh(){try{let r=await fetch("./snapshot.json",{cache:"no-store",credentials:"omit"});if(!r.ok)throw Error("快照 HTTP "+r.status);paint(await r.json())}catch(e){
 snapshot=null;$("message").textContent="公開資料失敗或驗證不通過；目前不能判定市場健康，也不能宣稱策略已生效。";$("snapshot-line").textContent="DATA_BLOCKED";
-for(let p of ["tw","us"]){for(let x of ["policy","index-price","etf","date","gate","signal"])$(p+"-"+x).textContent="—"}$("snapshot-id").textContent="—";$("generated-at").textContent="—";table();}}
+for(let p of ["tw","us"]){for(let x of ["policy","index-price","etf","date","gate","signal"])$(p+"-"+x).textContent="—"}$("snapshot-id").textContent="—";$("generated-date").textContent="—";$("generated-clock").textContent="—";table();}}
 $("market").addEventListener("change",table);document.querySelectorAll("[data-selectmarket]").forEach(b=>b.addEventListener("click",()=>{$("market").value=b.dataset.selectmarket;table();for(let x of document.querySelectorAll("[data-selectmarket]"))x.classList.toggle("selected",x===b)}));
 refresh();setInterval(()=>{if(!document.hidden)refresh()},120000);document.addEventListener("visibilitychange",()=>{if(!document.hidden)refresh()});
 })();
