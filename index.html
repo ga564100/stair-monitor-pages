@@ -58,6 +58,7 @@
 .safe-scroll{max-width:100%;overflow:auto}.safe-action{display:inline-block;padding:10px 14px;margin:5px 7px 5px 0;background:var(--navy2);color:white!important;border-radius:9px;text-decoration:none;font-weight:700}
 .safe-action.alt{background:#e5effb;color:#215b91!important}
 .safe-muted{color:var(--muted);font-size:12px}
+.stair-table td{white-space:normal}.stair-table td:first-child{white-space:nowrap;color:var(--muted)}
 @media(max-width:760px){.safe-cols{grid-template-columns:1fr}.safe-panel{padding:14px}.safe-table th,.safe-table td{padding:7px 9px}}
 </style></head>
 <body>
@@ -77,7 +78,11 @@
 <div class="safe-panel"><h3>行情與策略觀察</h3><div class="safe-cols">
 <div class="safe-item"><span class="safe-note">台灣50 指數收盤</span><b id="tw-index-price">—</b><p id="tw-etf">00631L：—</p></div>
 <div class="safe-item"><span class="safe-note">Nasdaq-100 指數收盤</span><b id="us-index-price">—</b><p id="us-etf">QLD：—</p></div>
-</div><p class="safe-note">基線與本人選定的觀察策略必須明確區分。若未證明本次監控確實採用新策略，就不顯示已生效。</p></div></section>
+</div><p class="safe-note">基線與本人選定的觀察策略必須明確區分。若未證明本次監控確實採用新策略，就不顯示已生效。</p></div>
+<div class="safe-panel"><h3>今日階梯狀態</h3><div class="safe-cols">
+<div class="safe-item"><span class="safe-note">台灣 TW50 → 00631L（S0）</span><table class="safe-table stair-table" aria-label="台灣階梯狀態"><tbody id="tw-stair"><tr><td>載入中</td></tr></tbody></table></div>
+<div class="safe-item"><span class="safe-note">美國 NASDAQ100 → QLD（S50）</span><table class="safe-table stair-table" aria-label="美國階梯狀態"><tbody id="us-stair"><tr><td>載入中</td></tr></tbody></table></div>
+</div><p class="safe-note">轉折與階梯方向來自凍結引擎，並以同一份主資料庫獨立重算核對；兩者不一致時不顯示數字。「應有持倉」是規則推導的研究狀態，不是交易指令。</p></div></section>
 <section class="section" id="ui02"><div class="section-title"><h2>UI02｜V9.3 階梯警報</h2><small>正式警報認證與每日觀察分開</small></div>
 <div class="safe-alert"><strong>目前正式 Live/PIT 警報：尚未認證</strong><p>不能將研究回放誤當真實失效警報；沒有正式警報也不表示市場健康。</p></div>
 <div class="safe-panel safe-cols"><div class="safe-item"><h3>台灣觀察與資料品質</h3><p id="tw-gate">—</p><p id="tw-signal" class="safe-note">階梯研究訊號：—</p></div><div class="safe-item"><h3>美國觀察與資料品質</h3><p id="us-gate">—</p><p id="us-signal" class="safe-note">階梯研究訊號：—</p></div></div></section>
@@ -102,6 +107,18 @@ const periods=["1Y","3Y","5Y","10Y","FULL","OOS"];
 const fmt=(v,d=2)=>typeof v==="number"&&Number.isFinite(v)?v.toLocaleString("zh-TW",{minimumFractionDigits:d,maximumFractionDigits:d}):"N/A";
 const pct=v=>v==null?"N/A":fmt(v*100)+"%";
 let snapshot=null;
+function stairRows(p,v){let el=$(p+"-stair");el.replaceChildren();let s=v?.stairSignal;
+const add=(k,val)=>{let r=el.insertRow();r.insertCell().textContent=k;r.insertCell().textContent=val;};
+if(!s){add("階梯狀態","未取得（資料未通過檢查時不推論）");return}
+const ok=s.pivotCheck==="FROZEN_MATCHES_MASTER";
+add("訊號日",s.asOf||"N/A");
+add("本月轉折",ok?fmt(s.pivot):"不顯示");
+add("上月轉折",ok?fmt(s.prevPivot):"不顯示");
+add("階梯方向",ok?(s.stairDown?"向下 ▼":"向上 ▲"):"不顯示");
+add("指數收盤",ok?fmt(s.close)+(s.close<s.pivot?"（低於轉折）":"（高於或等於轉折）"):"不顯示");
+add("風險狀態",s.riskClose===true?"風險中（空手）":s.riskClose===false?"正常":"N/A");
+add("應有持倉",typeof s.targetEquity==="number"?fmt(s.targetEquity*100,0)+"% ETF":"N/A");
+if(!ok)add("核對",s.pivotCheck==="MISMATCH_HIDDEN"?"凍結引擎與主資料庫重算不一致，請人工確認":"無法核對");}
 function table(){let el=$("performance");el.replaceChildren();let m=snapshot?.markets?.[$("market").value];
 if(!m){let row=el.insertRow(),cell=row.insertCell();cell.colSpan=7;cell.textContent="沒有可驗證的策略績效";return}
 for(let p of ["S0","S50","B70","B50","B100"]){let row=el.insertRow();row.insertCell().textContent=p==="B100"?"B100（長抱參考）":p;
@@ -112,7 +129,10 @@ const t=Date.parse(d.generatedAtUtc);if(!Number.isFinite(t)||t>Date.now()+180000
 const taipeiParts=Object.fromEntries(new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Taipei",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",hourCycle:"h23"}).formatToParts(new Date(t)).filter(p=>p.type!=="literal").map(p=>[p.type,p.value]));
 const localDate=[taipeiParts.year,taipeiParts.month,taipeiParts.day].join("-");
 const localClock=[taipeiParts.hour,taipeiParts.minute,taipeiParts.second].join(":");
-snapshot=d;const old=Date.now()-t>4*86400000;
+snapshot=d;
+// Stale when the monitor itself reports a missed session, or the snapshot is older than 30 hours.
+const lagging=["TW","US"].filter(k=>typeof d.markets[k].lagTradingSessions==="number"&&d.markets[k].lagTradingSessions>0);
+const old=Date.now()-t>30*3600000||lagging.length>0;
 for(let id of ["TW","US"]){let v=d.markets[id],p=id.toLowerCase();if(!["S0","S50","B70","B50"].includes(v.observationPolicy))throw Error("策略代碼不正確");
 let selected=v.ownerObservedPolicy||v.observationPolicy;
 if(!["S0","S50","B70","B50"].includes(selected))throw Error("觀察策略無法驗證");
@@ -121,17 +141,18 @@ $(p+"-date").textContent="指數 "+v.indexPrice.asOf+"｜ETF "+v.etfPrice.asOf+"
 $(p+"-index-price").textContent=fmt(v.indexPrice.lastClose,4);
 $(p+"-etf").textContent=v.etf+"："+fmt(v.etfPrice.lastClose,4);
 $(p+"-gate").textContent=v.observationStatus+"；正式 V9.3：未認證"+(v.calendarExceptionResearch?"；10/23官方休市已另行核對，歷史研究可用（非正式警報）":"")+(v.ownerObservedPolicy?"；已用選定策略跑研究監控":"");
+stairRows(p,v);
 let signal=v.stairSignal;$(p+"-signal").textContent=signal?.mode==="FROZEN_HISTORICAL_RESEARCH_ONLY"?
 "原階梯研究訊號："+(signal.transition||"N/A")+"｜風險收盤："+(signal.riskClose===null?"N/A":signal.riskClose?"是":"否")+"｜"+(signal.asOf||"無日期"):"階梯研究訊號：未取得（非買賣指令）";
 }
 $("snapshot-id").textContent=d.snapshotId;$("generated-date").textContent=localDate;$("generated-clock").textContent=localClock+"（UTC+8）";
 $("snapshot-line").textContent="GitHub 主庫｜"+localDate+" "+localClock+"（台北）｜OBSERVATION_ONLY";
-$("message").textContent=old?"公開快照已超過四天未更新，可能過期。請核對台美各自的資料截至日；不可推定監控健康。":"已載入已核對的公開觀察資料。正式 Live/PIT 與 Current 尚未認證。";
+$("message").textContent=old?("資料可能過期："+(lagging.length?lagging.join("、")+" 市場落後最新交易日。":"快照超過 30 小時未更新。")+"請核對台美各自的資料截至日；不可推定監控健康。"):"已載入已核對的公開觀察資料。正式 Live/PIT 與 Current 尚未認證。";
 table();
 }
 async function refresh(){try{let r=await fetch("./snapshot.json",{cache:"no-store",credentials:"omit"});if(!r.ok)throw Error("快照 HTTP "+r.status);paint(await r.json())}catch(e){
 snapshot=null;$("message").textContent="公開資料失敗或驗證不通過；目前不能判定市場健康，也不能宣稱策略已生效。";$("snapshot-line").textContent="DATA_BLOCKED";
-for(let p of ["tw","us"]){for(let x of ["policy","index-price","etf","date","gate","signal"])$(p+"-"+x).textContent="—"}$("snapshot-id").textContent="—";$("generated-date").textContent="—";$("generated-clock").textContent="—";table();}}
+for(let p of ["tw","us"]){for(let x of ["policy","index-price","etf","date","gate","signal"])$(p+"-"+x).textContent="—";stairRows(p,null)}$("snapshot-id").textContent="—";$("generated-date").textContent="—";$("generated-clock").textContent="—";table();}}
 $("market").addEventListener("change",table);document.querySelectorAll("[data-selectmarket]").forEach(b=>b.addEventListener("click",()=>{$("market").value=b.dataset.selectmarket;table();for(let x of document.querySelectorAll("[data-selectmarket]"))x.classList.toggle("selected",x===b)}));
 refresh();setInterval(()=>{if(!document.hidden)refresh()},120000);document.addEventListener("visibilitychange",()=>{if(!document.hidden)refresh()});
 })();
