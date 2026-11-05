@@ -56,6 +56,7 @@
 .act-card{border-radius:var(--radius);padding:22px;color:#fff;background:linear-gradient(135deg,var(--navy),var(--navy2));box-shadow:var(--shadow);margin:16px 0}
 .act-card.sell{background:linear-gradient(135deg,#7a2418,#a8412f)}.act-card.buy{background:linear-gradient(135deg,#085f50,#0b8a73)}.act-card.wait{background:linear-gradient(135deg,#5a4a1a,#8a6f1f)}
 .act-kicker{font-size:13px;opacity:.8}.act-head{font-size:32px;font-weight:800;line-height:1.25;margin:4px 0}.act-sub{font-size:15px;opacity:.92}.act-fresh{font-size:13px;opacity:.75;margin-top:10px}
+.hide-short .short{display:none}.help summary{cursor:pointer;font-weight:700}.help ul{margin:6px 0 0;padding-left:18px}.tbtn{font:inherit;padding:6px 12px;margin:0 0 8px;border:1px solid #9aa7b8;border-radius:8px;background:transparent;color:inherit;cursor:pointer}
 .lamp{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:20px}.lamp i{width:18px;height:18px;border-radius:50%;display:inline-block;background:#9aa7b8}
 .lamp.GREEN i{background:#14a46f}.lamp.YELLOW i{background:#e4b100}.lamp.ORANGE i{background:#e8741a}.lamp.RED i{background:#d02e2e}
 .gauge{position:relative;height:12px;border-radius:6px;background:var(--shade);margin:12px 0 4px;overflow:hidden}.gauge b{position:absolute;left:0;top:0;bottom:0;background:#e4b100;border-radius:6px}.gauge u{position:absolute;top:-2px;bottom:-2px;width:2px;background:#65768c;text-decoration:none}
@@ -82,7 +83,15 @@
 <div class="safe-cols">
 <div class="safe-panel" style="margin:0"><h3>離出場還有多遠</h3><div class="dist-big" id="dist-big">—</div><p id="dist-text">—</p><p class="safe-note" id="dist-next">—</p></div>
 <div class="safe-panel" style="margin:0"><h3>策略還有效嗎？</h3><div class="lamp" id="fl-lamp"><i></i><span id="fl-name">尚未取得</span></div><p id="fl-text">—</p>
-<div class="gauge" aria-hidden="true"><b id="fl-bar" style="width:0%"></b><u style="left:50%"></u><u style="left:calc(100% - 2px)"></u></div><div class="gauge-ticks" style="position:relative;height:18px"><span style="position:absolute;left:0">0</span><span style="position:absolute;left:50%;transform:translateX(-50%)">黃線 4.63</span><span style="position:absolute;right:0">橙線 9.25</span></div><p class="safe-note" id="fl-note">—</p></div>
+<div class="gauge" aria-hidden="true"><b id="fl-bar" style="width:0%"></b><u style="left:50%"></u><u style="left:calc(100% - 2px)"></u></div><div class="gauge-ticks" style="position:relative;height:18px"><span style="position:absolute;left:0">0</span><span style="position:absolute;left:50%;transform:translateX(-50%)">黃線 4.63</span><span style="position:absolute;right:0">橙線 9.25</span></div><p class="safe-note" id="fl-note">—</p><details class="help safe-note"><summary>這個燈怎麼看？</summary><ul>
+<li><b>綠</b>：全部正常，什麼都不用做。</li>
+<li><b>黃</b>：有早期跡象，只記錄、不用換倉。</li>
+<li><b>橙</b>：至少兩項證據同時到橙（其中要有「大跌沒躲掉」或「長期輸 B70」），規則建議改持 B70（70% 正二＋30% 現金），請人工確認。</li>
+<li><b>紅</b>：橙燈持續 12 個月以上並有進一步確認，才建議改持 B50（50/50）。</li>
+<li>橫條只畫「長期輸 B70」這一項的累積分數；黃燈的原因可能是別項，看下面「亮燈項目」。</li>
+<li>八項：A1 大跌沒躲掉、A3 大跌變快、A4 出場偏慢、B 長期輸 B70、C 執行延遲、D 舊失效警報、E 策略選擇器、F 前瞻判定。</li>
+<li>C～F 需要人工輸入或之後才有資料，沒有輸入時視為正常。</li>
+<li>這個燈看的是策略的長期品質，不是最近賺或賠多少；短期落後是正常現象。</li></ul></details></div>
 </div>
 <div class="safe-panel"><h3>影子對照（樣本累積中）</h3><div class="safe-scroll"><table class="safe-table" aria-label="影子對照淨值"><thead><tr><th>策略（皆買賣 00631L）</th><th>淨值（11/3＝1）</th><th>累積</th></tr></thead><tbody id="shadow-body"><tr><td colspan="3">尚未開始累積</td></tr></tbody></table></div><p class="safe-note" id="shadow-note">影子紀錄會在第一筆資料寫出後出現。</p></div>
 <p class="safe-note" id="act-us">美國 S50：—</p></section>
@@ -102,7 +111,7 @@
 <div class="safe-panel safe-cols"><div class="safe-item"><h3>台灣觀察與資料品質</h3><p id="tw-gate">—</p><p id="tw-signal" class="safe-note">階梯研究訊號：—</p></div><div class="safe-item"><h3>美國觀察與資料品質</h3><p id="us-gate">—</p><p id="us-signal" class="safe-note">階梯研究訊號：—</p></div></div></section>
 <section class="section" id="ui03"><div class="section-title"><h2>UI03｜S0／S50／B70／B50／B100 績效比較</h2><small>原 Frozen 研究；B100 僅供長抱比較，不參與策略選擇；不補不存在的數字</small></div>
 <div class="safe-panel"><label for="market">市場：</label> <select id="market"><option value="TW">台灣 00631L</option><option value="US">美國 QLD</option></select>
-<div class="safe-scroll"><table class="safe-table" aria-label="五策略六期間績效表"><thead><tr><th>策略</th><th>1Y CAGR／MDD</th><th>3Y</th><th>5Y</th><th>10Y</th><th>全歷史</th><th>OOS</th></tr></thead>
+<button type="button" class="tbtn" id="short-toggle">顯示 1 年、3 年（短期數字，容易受影響）</button><div class="safe-scroll hide-short" id="perf-wrap"><table class="safe-table" aria-label="五策略六期間績效表"><thead><tr><th>策略</th><th class="short">1Y CAGR／MDD</th><th class="short">3Y</th><th>5Y</th><th>10Y</th><th>全歷史</th><th>OOS</th></tr></thead>
 <tbody id="performance"><tr><td colspan="7">載入中</td></tr></tbody></table></div>
 <p class="safe-note">CAGR / MDD 已反映來源內的研究假設；B100 是長抱參考，不能選為 Current。台股若以 10/23 官方颱風休市作獨立日曆校正，僅補歷史研究績效，原版營運阻擋與正式警報認證仍分開；不是個人實際帳戶績效或可直接下單訊號。</p></div></section>
 <section class="section" id="ui04"><div class="section-title"><h2>UI04｜資料證據與更新狀態</h2><small>公開摘要，不包含私人底層資料</small></div>
@@ -121,12 +130,13 @@ const periods=["1Y","3Y","5Y","10Y","FULL","OOS"];
 const fmt=(v,d=2)=>typeof v==="number"&&Number.isFinite(v)?v.toLocaleString("zh-TW",{minimumFractionDigits:d,maximumFractionDigits:d}):"N/A";
 const pct=v=>v==null?"N/A":fmt(v*100)+"%";
 let snapshot=null,snapshotOld=false;
+$("short-toggle").addEventListener("click",()=>{const w=$("perf-wrap"),h=w.classList.toggle("hide-short");$("short-toggle").textContent=h?"顯示 1 年、3 年（短期數字，容易受影響）":"收起 1 年、3 年";});
 function table(){let el=$("performance");el.replaceChildren();let m=snapshot?.markets?.[$("market").value];
 if(!m){let row=el.insertRow(),cell=row.insertCell();cell.colSpan=7;cell.textContent="沒有可驗證的策略績效";return}
 for(let p of ["S0","S50","B70","B50","B100"]){let row=el.insertRow();row.insertCell().textContent=p==="B100"?"B100（長抱參考）":p;
-for(let w of periods){let v=m.performance?.[p]?.[w];row.insertCell().textContent=v?pct(v.cagr)+" / "+pct(v.mdd):"N/A";}}diffRow(el,m,$("market").value==="US"?"S50":"S0")}
+for(let w of periods){let v=m.performance?.[p]?.[w],c=row.insertCell();c.textContent=v?pct(v.cagr)+" / "+pct(v.mdd):"N/A";if(w==="1Y"||w==="3Y")c.className="short";}}diffRow(el,m,$("market").value==="US"?"S50":"S0")}
 function diffRow(el,m,base){let r=el.insertRow();r.insertCell().textContent=base+" 對長抱的差距";
-for(let w of periods){let a=m.performance?.[base]?.[w],b=m.performance?.B100?.[w],c=r.insertCell();
+for(let w of periods){let a=m.performance?.[base]?.[w],b=m.performance?.B100?.[w],c=r.insertCell();if(w==="1Y"||w==="3Y")c.className="short";
 c.textContent=a&&b?"年化 "+(a.cagr>=b.cagr?"+":"")+fmt((a.cagr-b.cagr)*100,1)+"｜回撤"+(a.mdd>=b.mdd?"淺 ":"深 ")+fmt(Math.abs(a.mdd-b.mdd)*100,1):"N/A"}
 r.className="diff-row"}
 const LAMP={GREEN:["正常","維持 S0，什麼都不用做。"],YELLOW:["留意","有早期跡象，但還不用換倉；每天自動追蹤。"],ORANGE:["失效警示","多項證據同時亮橙：依規則改持 B70（70% 正二＋30% 現金）。請人工確認。"],RED:["嚴重失效","依規則改持 B50（50/50）。請人工確認。"]};
@@ -153,8 +163,8 @@ else $("dist-next").textContent="下月轉折預估：暫無。";
 const f=d.failureLayer,lamp=$("fl-lamp");
 if(f&&LAMP[f.light]){lamp.className="lamp "+f.light;$("fl-name").textContent=LAMP[f.light][0]+"（"+{GREEN:"綠",YELLOW:"黃",ORANGE:"橙",RED:"紅"}[f.light]+"燈）";$("fl-text").textContent=LAMP[f.light][1];
 $("fl2-lamp").className="lamp "+f.light;$("fl2-name").textContent=$("fl-name").textContent;$("fl2-text").textContent=LAMP[f.light][1];$("fl-bar").style.width=Math.min(100,f.cusumS/f.orangeAt*100)+"%";$("fl-bar").style.background=f.cusumS>=f.orangeAt?"#e8741a":f.cusumS>=f.yellowAt?"#e4b100":"#14a46f";
-const hot=Object.entries(f.levels).filter(e=>e[1]!=="GREEN").map(e=>e[0]+(e[1]==="ORANGE"?"（橙）":"（黃）"));
-$("fl-note").textContent="累積落後指標 S = "+fmt(f.cusumS)+"（越高代表近月長期輸給 B70）。亮燈項目："+(hot.length?hot.join("、"):"無")+"。統計截至 "+f.asOf+"。V9.3 單獨亮不換倉。"}
+const NM={A1:"大跌沒躲掉",A3:"大跌變快",A4:"出場偏慢",B:"長期輸 B70",C:"執行延遲",D:"舊失效警報",E:"策略選擇器",F:"前瞻判定"};const hot=Object.entries(f.levels).filter(e=>e[1]!=="GREEN").map(e=>(NM[e[0]]||e[0])+"（"+e[0]+"，"+(e[1]==="ORANGE"?"橙":"黃")+"）");
+$("fl-note").textContent="累積落後指標 S = "+fmt(f.cusumS)+"（越高代表近月長期輸給 B70）。亮燈原因："+(hot.length?hot.join("、"):"無")+"。統計截至 "+f.asOf+"。V9.3 單獨亮不換倉。"}
 else{$("fl2-lamp").className="lamp";$("fl2-name").textContent="尚未取得";$("fl2-text").textContent="失效燈號資料尚未發布到網站。";lamp.className="lamp";$("fl-name").textContent="尚未取得";$("fl-text").textContent="失效燈號資料尚未發布到網站。";$("fl-bar").style.width="0%";$("fl-note").textContent="—"}
 const u=d.markets.US,us=u.stairSignal;
 $("act-us").textContent="美國 S50（較次要）："+(us&&us.pivotCheck==="FROZEN_MATCHES_MASTER"?(us.transition==="ENTER_RISK"&&us.asOf===u.dataAsOf?"明天減碼":us.transition==="EXIT_RISK"&&us.asOf===u.dataAsOf?"明天加回":"今天不用動")+"｜"+(us.riskClose?"風險中":"正常")+"｜資料截至 "+(u.dataAsOf||"—"):(us?"明細等每日同步後出現":"資料核對中"))+"。失效層目前只涵蓋台灣。";
