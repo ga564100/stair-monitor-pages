@@ -1,5 +1,24 @@
 {
   "automaticTrading": false,
+  "failureLayer": {
+    "asOf": "2026-11-04",
+    "cusumS": 1.22,
+    "levels": {
+      "A1": "GREEN",
+      "A3": "YELLOW",
+      "A4": "GREEN",
+      "B": "GREEN",
+      "C": "GREEN",
+      "D": "GREEN",
+      "E": "GREEN",
+      "F": "GREEN"
+    },
+    "light": "YELLOW",
+    "openDrawdown": -0.1367,
+    "orangeAt": 9.25,
+    "scope": "TW_S0",
+    "yellowAt": 4.63
+  },
   "generatedAtUtc": "2026-11-04T02:23:08.781370+00:00",
   "livePitCertified": false,
   "markets": {
@@ -160,6 +179,8 @@
         "asOf": "2026-11-03",
         "close": 40112.22,
         "mode": "FROZEN_HISTORICAL_RESEARCH_ONLY",
+        "nextPivotEstimate": 43296.28,
+        "nextStairDownEstimate": true,
         "pivot": 43986.78,
         "pivotCheck": "FROZEN_MATCHES_MASTER",
         "prevPivot": 42736.1,
@@ -185,9 +206,9 @@
         "asOf": "2026-11-03",
         "lastClose": 28180.2637
       },
-      "lagTradingSessions": 0,
+      "lagTradingSessions": 1,
       "observationPolicy": "S50",
-      "observationStatus": "LATEST_ASOF_OBSERVATION",
+      "observationStatus": "DELAYED_ASOF_OBSERVATION",
       "ownerObservedPolicy": null,
       "ownerObservedRevision": null,
       "performance": {
@@ -327,6 +348,8 @@
         "asOf": "2026-11-03",
         "close": 28180.26,
         "mode": "FROZEN_HISTORICAL_RESEARCH_ONLY",
+        "nextPivotEstimate": 29664.41,
+        "nextStairDownEstimate": true,
         "pivot": 29727.3,
         "pivotCheck": "FROZEN_MATCHES_MASTER",
         "prevPivot": 29483.76,
@@ -342,5 +365,5 @@
   "privatePolicyWriteEnabled": false,
   "publishedFrom": "PRIVATE_MAIN_VERIFIED_OBSERVATION",
   "schema": "STAIR_PUBLIC_OBSERVATION_V1",
-  "snapshotId": "9f9eff238d6d3acc421c5326"
+  "snapshotId": "2523b5d1d74eb24a173db0b1"
 }
