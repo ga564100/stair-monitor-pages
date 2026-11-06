@@ -19,7 +19,7 @@
     "scope": "TW_S0",
     "yellowAt": 4.63
   },
-  "generatedAtUtc": "2026-11-05T03:33:16.746167+00:00",
+  "generatedAtUtc": "2026-11-06T03:28:41.968012+00:00",
   "livePitCertified": false,
   "markets": {
     "TW": {
@@ -37,7 +37,7 @@
         "asOf": "2026-11-03",
         "lastClose": 40112.22
       },
-      "lagTradingSessions": 1,
+      "lagTradingSessions": 2,
       "observationPolicy": "S0",
       "observationStatus": "DELAYED_ASOF_OBSERVATION",
       "ownerObservedPolicy": null,
@@ -191,17 +191,17 @@
     "US": {
       "calendarExceptionResearch": false,
       "currentVerification": "NOT_BOOTSTRAPPED",
-      "dataAsOf": "2026-11-04",
+      "dataAsOf": "2026-11-05",
       "etf": "QLD",
       "etfPrice": {
-        "asOf": "2026-11-04",
-        "lastClose": 82.81
+        "asOf": "2026-11-05",
+        "lastClose": 72.27
       },
       "formalAlarm": "NOT_CERTIFIED",
       "index": "NASDAQ100",
       "indexPrice": {
-        "asOf": "2026-11-04",
-        "lastClose": 28437.166
+        "asOf": "2026-11-05",
+        "lastClose": 26629.8086
       },
       "lagTradingSessions": 0,
       "observationPolicy": "S50",
@@ -211,141 +211,141 @@
       "performance": {
         "B100": {
           "10Y": {
-            "cagr": 0.32764205,
+            "cagr": 0.30370176,
             "mdd": -0.63684476
           },
           "1Y": {
-            "cagr": 0.14684235,
-            "mdd": -0.23114758
+            "cagr": -0.01220504,
+            "mdd": -0.28282228
           },
           "3Y": {
-            "cagr": 0.38899737,
+            "cagr": 0.32693411,
             "mdd": -0.42290021
           },
           "5Y": {
-            "cagr": 0.13295799,
+            "cagr": 0.10208075,
             "mdd": -0.63684476
           },
           "FULL": {
-            "cagr": 0.24316516,
+            "cagr": 0.2348503,
             "mdd": -0.83128866
           },
           "OOS": {
-            "cagr": 0.27719688,
+            "cagr": 0.25191185,
             "mdd": -0.63684476
           }
         },
         "B50": {
           "10Y": {
-            "cagr": 0.18003593,
+            "cagr": 0.16894676,
             "mdd": -0.35448987
           },
           "1Y": {
-            "cagr": 0.07305574,
-            "mdd": -0.13295439
+            "cagr": -0.00765453,
+            "mdd": -0.16531572
           },
           "3Y": {
-            "cagr": 0.19628906,
+            "cagr": 0.1682206,
             "mdd": -0.22054924
           },
           "5Y": {
-            "cagr": 0.09326808,
+            "cagr": 0.07770068,
             "mdd": -0.35448987
           },
           "FULL": {
-            "cagr": 0.14297454,
+            "cagr": 0.13899558,
             "mdd": -0.52606288
           },
           "OOS": {
-            "cagr": 0.16066995,
+            "cagr": 0.14867151,
             "mdd": -0.35448987
           }
         },
         "B70": {
           "10Y": {
-            "cagr": 0.24389103,
+            "cagr": 0.22779958,
             "mdd": -0.47588927
           },
           "1Y": {
-            "cagr": 0.10249709,
-            "mdd": -0.17445299
+            "cagr": -0.00977571,
+            "mdd": -0.21678369
           },
           "3Y": {
-            "cagr": 0.27377306,
+            "cagr": 0.23275929,
             "mdd": -0.30359175
           },
           "5Y": {
-            "cagr": 0.11664707,
+            "cagr": 0.09478163,
             "mdd": -0.47588927
           },
           "FULL": {
-            "cagr": 0.18945818,
+            "cagr": 0.1837549,
             "mdd": -0.67106007
           },
           "OOS": {
-            "cagr": 0.21375473,
+            "cagr": 0.19649585,
             "mdd": -0.47588927
           }
         },
         "S0": {
           "10Y": {
-            "cagr": 0.25277736,
+            "cagr": 0.23014792,
             "mdd": -0.58294819
           },
           "1Y": {
-            "cagr": 0.01567875,
-            "mdd": -0.24046794
+            "cagr": -0.12517849,
+            "mdd": -0.3164212
           },
           "3Y": {
-            "cagr": 0.32044104,
-            "mdd": -0.26195028
+            "cagr": 0.26149933,
+            "mdd": -0.3164212
           },
           "5Y": {
-            "cagr": 0.09431941,
+            "cagr": 0.06449521,
             "mdd": -0.58294819
           },
           "FULL": {
-            "cagr": 0.2020721,
+            "cagr": 0.19403749,
             "mdd": -0.58294819
           },
           "OOS": {
-            "cagr": 0.19885343,
+            "cagr": 0.17514915,
             "mdd": -0.58294819
           }
         },
         "S50": {
           "10Y": {
-            "cagr": 0.29329978,
+            "cagr": 0.26996052,
             "mdd": -0.60092012
           },
           "1Y": {
-            "cagr": 0.07994364,
-            "mdd": -0.22777366
+            "cagr": -0.06982604,
+            "mdd": -0.29843484
           },
           "3Y": {
-            "cagr": 0.35511449,
-            "mdd": -0.29781198
+            "cagr": 0.29459439,
+            "mdd": -0.29843484
           },
           "5Y": {
-            "cagr": 0.11688211,
+            "cagr": 0.086443,
             "mdd": -0.60092012
           },
           "FULL": {
-            "cagr": 0.23227797,
+            "cagr": 0.22403738,
             "mdd": -0.65530469
           },
           "OOS": {
-            "cagr": 0.24168594,
+            "cagr": 0.21711766,
             "mdd": -0.60092012
           }
         }
       },
       "researchAvailable": true,
       "stairSignal": {
-        "asOf": "2026-11-04",
-        "close": 28437.17,
+        "asOf": "2026-11-05",
+        "close": 26629.81,
         "mode": "FROZEN_HISTORICAL_RESEARCH_ONLY",
-        "nextPivotEstimate": 29664.41,
+        "nextPivotEstimate": 28983.9,
         "pivot": 29727.3,
         "pivotCheck": "FROZEN_MATCHES_MASTER",
         "riskClose": false,
@@ -359,5 +359,5 @@
   "privatePolicyWriteEnabled": false,
   "publishedFrom": "PRIVATE_MAIN_VERIFIED_OBSERVATION",
   "schema": "STAIR_PUBLIC_OBSERVATION_V1",
-  "snapshotId": "7115c23c37631ba8134bf460"
+  "snapshotId": "59906341c767b88e64f3e4a4"
 }
