@@ -1,7 +1,7 @@
 {
   "automaticTrading": false,
   "failureLayer": {
-    "asOf": "2026-11-13",
+    "asOf": "2026-11-14",
     "cusumS": 1.22,
     "levels": {
       "A1": "GREEN",
@@ -14,7 +14,7 @@
       "F": "GREEN"
     },
     "light": "YELLOW",
-    "openDrawdown": -0.1321,
+    "openDrawdown": -0.1215,
     "orangeAt": 9.25,
     "scope": "TW_S0",
     "yellowAt": 4.63
@@ -371,5 +371,5 @@
       "S0": 0.9609
     }
   },
-  "snapshotId": "4f9e634c1db8ecbfb8edeeb8"
+  "snapshotId": "deb19d976faff340721e8ed1"
 }
