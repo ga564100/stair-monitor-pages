@@ -82,15 +82,15 @@
 <div class="act-card wait" id="act-card"><div class="act-kicker" id="act-kicker">台灣 TW50 → 00631L（S0）</div><div class="act-head" id="act-head">資料核對中</div><div class="act-sub" id="act-sub">—</div><div class="act-fresh" id="act-fresh">—</div></div>
 <div class="safe-cols">
 <div class="safe-panel" style="margin:0"><h3>離出場還有多遠</h3><div class="dist-big" id="dist-big">—</div><p id="dist-text">—</p><p class="safe-note" id="dist-next">—</p></div>
-<div class="safe-panel" style="margin:0"><h3>策略還有效嗎？</h3><div class="lamp" id="fl-lamp"><i></i><span id="fl-name">尚未取得</span></div><p id="fl-text">—</p>
-<div class="gauge" aria-hidden="true"><b id="fl-bar" style="width:0%"></b><u style="left:50%"></u><u style="left:calc(100% - 2px)"></u></div><div class="gauge-ticks" style="position:relative;height:18px"><span style="position:absolute;left:0">0</span><span style="position:absolute;left:50%;transform:translateX(-50%)">黃線 4.63</span><span style="position:absolute;right:0">橙線 9.25</span></div><p class="safe-note" id="fl-note">—</p><details class="help safe-note"><summary>這個燈怎麼看？</summary><ul>
-<li><b>綠</b>：全部正常，什麼都不用做。</li>
-<li><b>黃</b>：有早期跡象，只記錄、不用換倉。</li>
-<li><b>橙</b>：至少兩項證據同時到橙（其中要有「大跌沒躲掉」或「長期輸 B70」），規則建議改持 B70（70% 正二＋30% 現金），請人工確認。</li>
-<li><b>紅</b>：橙燈持續 12 個月以上並有進一步確認，才建議改持 B50（50/50）。</li>
-<li>橫條只畫「長期輸 B70」這一項的累積分數；黃燈的原因可能是別項，看下面「亮燈項目」。</li>
-<li>八項：A1 大跌沒躲掉、A3 大跌變快、A4 出場偏慢、B 長期輸 B70、C 執行延遲、D 舊失效警報、E 策略選擇器、F 前瞻判定。</li>
-<li>C～F 需要人工輸入或之後才有資料，沒有輸入時視為正常。</li>
+<div class="safe-panel" style="margin:0"><h3>策略還有效嗎？</h3><div class="lamp" id="fl-lamp"><i></i><span id="fl-name">尚未取得</span></div><p id="fl-text">—</p><ul id="fl-conds" class="safe-note" style="margin:6px 0;padding-left:18px"></ul>
+<div class="gauge" aria-hidden="true"><b id="fl-bar" style="width:0%"></b><u id="fl-mid" style="left:50%"></u><u style="left:calc(100% - 2px)"></u></div><div class="gauge-ticks" style="position:relative;height:18px"><span style="position:absolute;left:0">0</span><span id="fl-tick-mid" style="position:absolute;left:50%;transform:translateX(-50%)">黃線 4.63</span><span id="fl-tick-end" style="position:absolute;right:0">橙線 9.25</span></div><p class="safe-note" id="fl-note">—</p><details class="help safe-note"><summary>這個燈怎麼看？</summary><ul>
+<li>看的是三個「階梯失效」的條件：<b>不成立＝階梯比較好</b>，<b>成立＝階梯比較差</b>。</li>
+<li><b>1 慢跌時階梯躲不掉</b>：最近 3 次慢速大跌，沒躲掉滿 2 次就成立。</li>
+<li><b>2 階梯長期輸給 70/30</b>：每月累計的落後分數到門檻就成立；橫條畫的就是這一項。</li>
+<li><b>3 大跌時階梯反而受傷</b>：每年 1 月 1 日檢查一次，連續 3 年都有傷害才成立。</li>
+<li><b>正常</b>：三項都不成立，什麼都不用做。</li>
+<li><b>注意</b>：第 1 或第 2 項只成立一個，只記錄、不換倉、不寄信。</li>
+<li><b>警報</b>：第 1、2 項同時成立，或第 3 項成立。會寄信給擁有者，由本人審核後決定，網站不會自動換倉。</li>
 <li>這個燈看的是策略的長期品質，不是最近賺或賠多少；短期落後是正常現象。</li></ul></details></div>
 </div>
 <div class="safe-panel"><h3>影子對照（樣本累積中）</h3><div class="safe-scroll"><table class="safe-table" aria-label="影子對照淨值"><thead><tr><th>策略（皆買賣 00631L）</th><th>淨值（11/3＝1）</th><th>累積</th></tr></thead><tbody id="shadow-body"><tr><td colspan="3">尚未開始累積</td></tr></tbody></table></div><p class="safe-note" id="shadow-note">影子紀錄會在第一筆資料寫出後出現。</p></div>
@@ -121,6 +121,7 @@
 <div class="safe-panel"><p>想更換策略時，只要進入私人 GitHub，由本人第一次提案、第二次確認。網頁不需要 OAuth 或私人 API。</p>
 <a class="safe-action" href="https://github.com/ga564100/quant-backtest/actions/workflows/stair-human-policy-propose.yml" rel="noopener noreferrer">到 GitHub 修改策略</a>
 <a class="safe-action alt" href="https://github.com/ga564100/quant-backtest/actions/workflows/stair-human-policy-confirm.yml" rel="noopener noreferrer">到 GitHub 第二次確認</a>
+<a class="safe-action alt" href="https://github.com/ga564100/quant-backtest/actions/workflows/stair-strategy-decision.yml" rel="noopener noreferrer">到 GitHub 審核警報、選擇策略</a>
 <p class="safe-note">現行 GitHub 工作流先保存待監控決策；要證明新策略真的被當次監控採用，還需要同版本 Run 驗證。本頁不會冒稱已完成正式 Current 生效。</p></div></section>
 </main></div><footer class="safe-note" style="text-align:center;padding:20px">階梯警報器 · GitHub 私人主庫來源 · 公開唯讀展示 · 無自動交易</footer>
 <script>
@@ -139,6 +140,7 @@ function diffRow(el,m,base){let r=el.insertRow();r.insertCell().textContent=base
 for(let w of periods){let a=m.performance?.[base]?.[w],b=m.performance?.B100?.[w],c=r.insertCell();if(w==="1Y"||w==="3Y")c.className="short";
 c.textContent=a&&b?"年化 "+(a.cagr>=b.cagr?"+":"")+fmt((a.cagr-b.cagr)*100,1)+"｜回撤"+(a.mdd>=b.mdd?"淺 ":"深 ")+fmt(Math.abs(a.mdd-b.mdd)*100,1):"N/A"}
 r.className="diff-row"}
+const ST2={NORMAL:["正常","三個條件都不成立，階梯仍然比較好，什麼都不用做。","GREEN"],ATTENTION:["注意","有一個條件成立，只記錄，不用換倉。","YELLOW"],ALARM:["警報","階梯判定失效，已通知擁有者人工審核；不會自動換倉。","ORANGE"]};
 const LAMP={GREEN:["正常","維持 S0，什麼都不用做。"],YELLOW:["留意","有早期跡象，但還不用換倉；每天自動追蹤。"],ORANGE:["失效警示","多項證據同時亮橙：依規則改持 B70（70% 正二＋30% 現金）。請人工確認。"],RED:["嚴重失效","依規則改持 B50（50/50）。請人工確認。"]};
 function act(d){
 const v=d.markets.TW,s=v.stairSignal,ok=s&&s.pivotCheck==="FROZEN_MATCHES_MASTER",card=$("act-card");
@@ -160,8 +162,14 @@ $("dist-text").textContent=t;
 if(typeof s.nextPivotEstimate==="number")$("dist-next").textContent="下月轉折預估 ≈ "+fmt(s.nextPivotEstimate,0)+"（以目前本月高低點估算，月底前仍會變動）";
 else $("dist-next").textContent="下月轉折預估：暫無。";
 }
-const f=d.failureLayer,lamp=$("fl-lamp");
-if(f&&LAMP[f.light]){lamp.className="lamp "+f.light;$("fl-name").textContent=LAMP[f.light][0]+"（"+{GREEN:"綠",YELLOW:"黃",ORANGE:"橙",RED:"紅"}[f.light]+"燈）";$("fl-text").textContent=LAMP[f.light][1];
+const f=d.failureLayer,lamp=$("fl-lamp"),conds=$("fl-conds");conds.replaceChildren();
+if(f&&f.version===2&&ST2[f.status]){const st=ST2[f.status];lamp.className="lamp "+st[2];$("fl-name").textContent=st[0];$("fl-text").textContent=st[1];
+$("fl2-lamp").className="lamp "+st[2];$("fl2-name").textContent=st[0];$("fl2-text").textContent=st[1];
+for(let [m,name,detail] of [[f.q1.met,"1 慢跌時階梯躲不掉","最近 3 次慢速大跌沒躲掉 "+f.q1.misses+" 次（滿 "+f.q1.need+" 次成立）"],[f.q2.met,"2 階梯長期輸給 70/30","累計落後分數 "+fmt(f.q2.score)+"（滿 "+fmt(f.q2.need)+" 成立）"],[f.q3.met,"3 大跌時階梯反而受傷","連續 "+f.q3.years+" 年（滿 "+f.q3.need+" 年成立；"+f.q3.firstCheck+" 開始計算）"]]){
+const li=document.createElement("li"),b=document.createElement("b");b.textContent=name+"："+(m?"成立・階梯較差":"不成立・階梯較好");li.append(b,"｜"+detail);conds.append(li)}
+$("fl-bar").style.width=Math.min(100,f.q2.score/f.q2.need*100)+"%";$("fl-bar").style.background=f.q2.met?"#e8741a":"#14a46f";$("fl-mid").style.display="none";$("fl-tick-mid").textContent="";$("fl-tick-end").textContent="成立線 "+fmt(f.q2.need);
+$("fl-note").textContent="下次年度檢查 "+f.nextCheck+"。統計截至 "+f.asOf+"。"}
+else if(f&&LAMP[f.light]){lamp.className="lamp "+f.light;$("fl-name").textContent=LAMP[f.light][0]+"（"+{GREEN:"綠",YELLOW:"黃",ORANGE:"橙",RED:"紅"}[f.light]+"燈）";$("fl-text").textContent=LAMP[f.light][1];
 $("fl2-lamp").className="lamp "+f.light;$("fl2-name").textContent=$("fl-name").textContent;$("fl2-text").textContent=LAMP[f.light][1];$("fl-bar").style.width=Math.min(100,f.cusumS/f.orangeAt*100)+"%";$("fl-bar").style.background=f.cusumS>=f.orangeAt?"#e8741a":f.cusumS>=f.yellowAt?"#e4b100":"#14a46f";
 const NM={A1:"大跌沒躲掉",A3:"大跌變快",A4:"出場偏慢",B:"長期輸 B70",C:"執行延遲",D:"舊失效警報",E:"策略選擇器",F:"前瞻判定"};const hot=Object.entries(f.levels).filter(e=>e[1]!=="GREEN").map(e=>(NM[e[0]]||e[0])+"（"+e[0]+"，"+(e[1]==="ORANGE"?"橙":"黃")+"）");
 $("fl-note").textContent="累積落後指標 S = "+fmt(f.cusumS)+"（越高代表近月長期輸給 B70）。亮燈原因："+(hot.length?hot.join("、"):"無")+"。統計截至 "+f.asOf+"。V9.3 單獨亮不換倉。"}
