@@ -1,9 +1,9 @@
 {
   "automaticTrading": false,
   "failureLayer": {
-    "asOf": "2026-11-16",
+    "asOf": "2026-11-17",
     "nextCheck": "2027-01-01",
-    "openDrawdown": -0.1215,
+    "openDrawdown": -0.1767,
     "q1": {
       "met": false,
       "misses": 0,
@@ -24,7 +24,7 @@
     "status": "NORMAL",
     "version": 2
   },
-  "generatedAtUtc": "2026-11-16T15:39:23.292261+00:00",
+  "generatedAtUtc": "2026-11-17T05:07:39.317422+00:00",
   "livePitCertified": false,
   "markets": {
     "TW": {
@@ -42,9 +42,9 @@
         "asOf": "2026-11-16",
         "lastClose": 38255.29
       },
-      "lagTradingSessions": 0,
+      "lagTradingSessions": 1,
       "observationPolicy": "S0",
-      "observationStatus": "LATEST_ASOF_OBSERVATION",
+      "observationStatus": "DELAYED_ASOF_OBSERVATION",
       "ownerObservedPolicy": null,
       "ownerObservedRevision": null,
       "performance": {
@@ -196,159 +196,159 @@
     "US": {
       "calendarExceptionResearch": false,
       "currentVerification": "NOT_BOOTSTRAPPED",
-      "dataAsOf": "2026-11-13",
+      "dataAsOf": "2026-11-16",
       "etf": "QLD",
       "etfPrice": {
-        "asOf": "2026-11-13",
-        "lastClose": 79.3
+        "asOf": "2026-11-16",
+        "lastClose": 75.08
       },
       "formalAlarm": "NOT_CERTIFIED",
       "index": "NASDAQ100",
       "indexPrice": {
-        "asOf": "2026-11-13",
-        "lastClose": 27943.7402
+        "asOf": "2026-11-16",
+        "lastClose": 27197.1504
       },
-      "lagTradingSessions": 1,
+      "lagTradingSessions": 0,
       "observationPolicy": "S50",
-      "observationStatus": "DELAYED_ASOF_OBSERVATION",
+      "observationStatus": "LATEST_ASOF_OBSERVATION",
       "ownerObservedPolicy": null,
       "ownerObservedRevision": null,
       "performance": {
         "B100": {
           "10Y": {
-            "cagr": 0.3198354,
+            "cagr": 0.30744289,
             "mdd": -0.63684463
           },
           "1Y": {
-            "cagr": 0.14073766,
+            "cagr": 0.09802269,
             "mdd": -0.28282228
           },
           "3Y": {
-            "cagr": 0.34976411,
+            "cagr": 0.30571597,
             "mdd": -0.42290024
           },
           "5Y": {
-            "cagr": 0.12750482,
+            "cagr": 0.1119832,
             "mdd": -0.63684463
           },
           "FULL": {
-            "cagr": 0.24020211,
+            "cagr": 0.23677577,
             "mdd": -0.83128866
           },
           "OOS": {
-            "cagr": 0.26804887,
+            "cagr": 0.25764141,
             "mdd": -0.63684463
           }
         },
         "B50": {
           "10Y": {
-            "cagr": 0.17638093,
+            "cagr": 0.17061368,
             "mdd": -0.3544898
           },
           "1Y": {
-            "cagr": 0.07140248,
+            "cagr": 0.05108671,
             "mdd": -0.16531572
           },
           "3Y": {
-            "cagr": 0.17806263,
+            "cagr": 0.15739874,
             "mdd": -0.22054925
           },
           "5Y": {
-            "cagr": 0.09038377,
+            "cagr": 0.0825955,
             "mdd": -0.3544898
           },
           "FULL": {
-            "cagr": 0.1415027,
+            "cagr": 0.13985664,
             "mdd": -0.52606295
           },
           "OOS": {
-            "cagr": 0.15617027,
+            "cagr": 0.15120923,
             "mdd": -0.3544898
           }
         },
         "B70": {
           "10Y": {
-            "cagr": 0.23861058,
+            "cagr": 0.23025721,
             "mdd": -0.47588917
           },
           "1Y": {
-            "cagr": 0.09934356,
+            "cagr": 0.07028374,
             "mdd": -0.21678369
           },
           "3Y": {
-            "cagr": 0.24743455,
+            "cagr": 0.2177005,
             "mdd": -0.30359176
           },
           "5Y": {
-            "cagr": 0.11267436,
+            "cagr": 0.10171252,
             "mdd": -0.47588917
           },
           "FULL": {
-            "cagr": 0.18737894,
+            "cagr": 0.18502281,
             "mdd": -0.67106012
           },
           "OOS": {
-            "cagr": 0.20737289,
+            "cagr": 0.20024892,
             "mdd": -0.47588917
           }
         },
         "S0": {
           "10Y": {
-            "cagr": 0.24539128,
+            "cagr": 0.23371736,
             "mdd": -0.58294805
           },
           "1Y": {
-            "cagr": 0.01027214,
+            "cagr": -0.02788197,
             "mdd": -0.3164212
           },
           "3Y": {
-            "cagr": 0.28326269,
+            "cagr": 0.24138475,
             "mdd": -0.3164212
           },
           "5Y": {
-            "cagr": 0.08901082,
+            "cagr": 0.07405998,
             "mdd": -0.58294805
           },
           "FULL": {
-            "cagr": 0.19925582,
+            "cagr": 0.19595876,
             "mdd": -0.58294805
           },
           "OOS": {
-            "cagr": 0.19053716,
+            "cagr": 0.18085489,
             "mdd": -0.58294805
           }
         },
         "S50": {
           "10Y": {
-            "cagr": 0.28568591,
+            "cagr": 0.27362318,
             "mdd": -0.60092001
           },
           "1Y": {
-            "cagr": 0.07419499,
+            "cagr": 0.033801,
             "mdd": -0.29843484
           },
           "3Y": {
-            "cagr": 0.3168976,
+            "cagr": 0.27392203,
             "mdd": -0.29843484
           },
           "5Y": {
-            "cagr": 0.11148892,
+            "cagr": 0.09620496,
             "mdd": -0.60092001
           },
           "FULL": {
-            "cagr": 0.229354,
+            "cagr": 0.22596196,
             "mdd": -0.6553046
           },
           "OOS": {
-            "cagr": 0.23291712,
+            "cagr": 0.22283906,
             "mdd": -0.60092001
           }
         }
       },
       "researchAvailable": true,
       "stairSignal": {
-        "asOf": "2026-11-13",
-        "close": 27943.74,
+        "asOf": "2026-11-16",
+        "close": 27197.15,
         "mode": "FROZEN_HISTORICAL_RESEARCH_ONLY",
         "nextPivotEstimate": 28983.9,
         "pivot": 29727.3,
@@ -376,5 +376,5 @@
       "S0": 1.014
     }
   },
-  "snapshotId": "86b5ae856cfecc7c26fd8709"
+  "snapshotId": "682d8749b749b61ed78df86a"
 }
