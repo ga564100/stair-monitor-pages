@@ -1,9 +1,9 @@
 {
   "automaticTrading": false,
   "failureLayer": {
-    "asOf": "2026-11-20",
+    "asOf": "2026-11-21",
     "nextCheck": "2027-01-01",
-    "openDrawdown": -0.2266,
+    "openDrawdown": -0.2728,
     "q1": {
       "met": false,
       "misses": 0,
@@ -24,7 +24,7 @@
     "status": "NORMAL",
     "version": 2
   },
-  "generatedAtUtc": "2026-11-21T04:01:51.957873+00:00",
+  "generatedAtUtc": "2026-11-22T12:39:20.888560+00:00",
   "livePitCertified": false,
   "markets": {
     "TW": {
@@ -42,9 +42,9 @@
         "asOf": "2026-11-20",
         "lastClose": 33790.22
       },
-      "lagTradingSessions": 0,
+      "lagTradingSessions": 2,
       "observationPolicy": "S0",
-      "observationStatus": "LATEST_ASOF_OBSERVATION",
+      "observationStatus": "DELAYED_ASOF_OBSERVATION",
       "ownerObservedPolicy": null,
       "ownerObservedRevision": null,
       "performance": {
@@ -206,142 +206,142 @@
       "index": "NASDAQ100",
       "indexPrice": {
         "asOf": "2026-11-20",
-        "lastClose": 25028.9824
+        "lastClose": 25028.9805
       },
-      "lagTradingSessions": 0,
+      "lagTradingSessions": 1,
       "observationPolicy": "S50",
-      "observationStatus": "LATEST_ASOF_OBSERVATION",
+      "observationStatus": "DELAYED_ASOF_OBSERVATION",
       "ownerObservedPolicy": null,
       "ownerObservedRevision": null,
       "performance": {
         "B100": {
           "10Y": {
-            "cagr": 0.28238028,
-            "mdd": -0.63684463
+            "cagr": 0.28238029,
+            "mdd": -0.63684479
           },
           "1Y": {
-            "cagr": -0.01237487,
+            "cagr": -0.01237499,
             "mdd": -0.36965364
           },
           "3Y": {
-            "cagr": 0.22511022,
-            "mdd": -0.42290024
+            "cagr": 0.22511036,
+            "mdd": -0.42290017
           },
           "5Y": {
             "cagr": 0.07353073,
-            "mdd": -0.63395218
+            "mdd": -0.63395227
           },
           "FULL": {
-            "cagr": 0.22654865,
-            "mdd": -0.83128866
+            "cagr": 0.22654863,
+            "mdd": -0.83128872
           },
           "OOS": {
-            "cagr": 0.22701149,
-            "mdd": -0.63684463
+            "cagr": 0.2270115,
+            "mdd": -0.63684479
           }
         },
         "B50": {
           "10Y": {
-            "cagr": 0.15942611,
-            "mdd": -0.3544898
+            "cagr": 0.15942613,
+            "mdd": -0.35448992
           },
           "1Y": {
-            "cagr": 0.0013493,
+            "cagr": 0.00134923,
             "mdd": -0.21607052
           },
           "3Y": {
-            "cagr": 0.12113782,
-            "mdd": -0.22054925
+            "cagr": 0.12113789,
+            "mdd": -0.22054922
           },
           "5Y": {
-            "cagr": 0.06405938,
-            "mdd": -0.35186996
+            "cagr": 0.06405939,
+            "mdd": -0.35187003
           },
           "FULL": {
             "cagr": 0.13520383,
-            "mdd": -0.52606295
+            "mdd": -0.52606297
           },
           "OOS": {
-            "cagr": 0.1373086,
-            "mdd": -0.3544898
+            "cagr": 0.13730862,
+            "mdd": -0.35448992
           }
         },
         "B70": {
           "10Y": {
-            "cagr": 0.21378258,
-            "mdd": -0.47588917
+            "cagr": 0.2137826,
+            "mdd": -0.47588932
           },
           "1Y": {
-            "cagr": -0.00253063,
+            "cagr": -0.00253072,
             "mdd": -0.28334006
           },
           "3Y": {
-            "cagr": 0.16463946,
-            "mdd": -0.30359176
+            "cagr": 0.16463956,
+            "mdd": -0.30359172
           },
           "5Y": {
             "cagr": 0.07520446,
-            "mdd": -0.47293379
+            "mdd": -0.47293388
           },
           "FULL": {
-            "cagr": 0.17821705,
-            "mdd": -0.67106012
+            "cagr": 0.17821704,
+            "mdd": -0.67106015
           },
           "OOS": {
-            "cagr": 0.1798936,
-            "mdd": -0.47588917
+            "cagr": 0.17989362,
+            "mdd": -0.47588932
           }
         },
         "S0": {
           "10Y": {
-            "cagr": 0.21004878,
-            "mdd": -0.58294805
+            "cagr": 0.21004874,
+            "mdd": -0.58294816
           },
           "1Y": {
-            "cagr": -0.125329,
+            "cagr": -0.12532901,
             "mdd": -0.39918462
           },
           "3Y": {
-            "cagr": 0.16475036,
+            "cagr": 0.16475051,
             "mdd": -0.39918462
           },
           "5Y": {
-            "cagr": 0.03687945,
-            "mdd": -0.57962632
+            "cagr": 0.03687944,
+            "mdd": -0.57962636
           },
           "FULL": {
-            "cagr": 0.18609052,
-            "mdd": -0.58294805
+            "cagr": 0.18609047,
+            "mdd": -0.58294816
           },
           "OOS": {
-            "cagr": 0.1522106,
-            "mdd": -0.58294805
+            "cagr": 0.15221059,
+            "mdd": -0.58294816
           }
         },
         "S50": {
           "10Y": {
-            "cagr": 0.2491999,
-            "mdd": -0.60092001
+            "cagr": 0.24919989,
+            "mdd": -0.60092019
           },
           "1Y": {
-            "cagr": -0.06998602,
+            "cagr": -0.06998608,
             "mdd": -0.38337593
           },
           "3Y": {
-            "cagr": 0.19527901,
+            "cagr": 0.19527915,
             "mdd": -0.38337593
           },
           "5Y": {
-            "cagr": 0.05828152,
-            "mdd": -0.59774142
+            "cagr": 0.05828151,
+            "mdd": -0.59774154
           },
           "FULL": {
-            "cagr": 0.21583,
-            "mdd": -0.6553046
+            "cagr": 0.21582996,
+            "mdd": -0.65530457
           },
           "OOS": {
             "cagr": 0.19311003,
-            "mdd": -0.60092001
+            "mdd": -0.60092019
           }
         }
       },
@@ -366,15 +366,15 @@
   "schema": "STAIR_PUBLIC_OBSERVATION_V1",
   "shadowLog": {
     "base": "2026-11-03",
-    "days": 8,
-    "last": "2026-11-13",
-    "lateRows": 8,
+    "days": 13,
+    "last": "2026-11-20",
+    "lateRows": 13,
     "nav": {
-      "B100": 1.014,
+      "B100": 0.6747,
       "PROJ_TAIEX": 0.9161,
-      "PROJ_TW50": 0.9618,
-      "S0": 1.014
+      "PROJ_TW50": 0.8859,
+      "S0": 0.6747
     }
   },
-  "snapshotId": "fb4970583cb510fd9f0729bf"
+  "snapshotId": "06378ab767ed4386deb15c30"
 }
