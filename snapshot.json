@@ -1,7 +1,7 @@
 {
   "automaticTrading": false,
   "failureLayer": {
-    "asOf": "2026-11-21",
+    "asOf": "2026-11-24",
     "nextCheck": "2027-01-01",
     "openDrawdown": -0.2728,
     "q1": {
@@ -24,167 +24,167 @@
     "status": "NORMAL",
     "version": 2
   },
-  "generatedAtUtc": "2026-11-22T12:39:20.888560+00:00",
+  "generatedAtUtc": "2026-11-25T00:41:31.627873+00:00",
   "livePitCertified": false,
   "markets": {
     "TW": {
       "calendarExceptionResearch": false,
       "currentVerification": "NOT_BOOTSTRAPPED",
-      "dataAsOf": "2026-11-20",
+      "dataAsOf": "2026-11-24",
       "etf": "00631L",
       "etfPrice": {
-        "asOf": "2026-11-20",
-        "lastClose": 21.24
+        "asOf": "2026-11-24",
+        "lastClose": 27.0
       },
       "formalAlarm": "NOT_CERTIFIED",
       "index": "TW50",
       "indexPrice": {
-        "asOf": "2026-11-20",
-        "lastClose": 33790.22
+        "asOf": "2026-11-24",
+        "lastClose": 37863.95
       },
-      "lagTradingSessions": 2,
+      "lagTradingSessions": 0,
       "observationPolicy": "S0",
-      "observationStatus": "DELAYED_ASOF_OBSERVATION",
+      "observationStatus": "LATEST_ASOF_OBSERVATION",
       "ownerObservedPolicy": null,
       "ownerObservedRevision": null,
       "performance": {
         "B100": {
           "10Y": {
-            "cagr": 0.34610884,
+            "cagr": 0.37500433,
             "mdd": -0.55143668
           },
           "1Y": {
-            "cagr": 0.41741193,
+            "cagr": 0.92881252,
             "mdd": -0.49295775
           },
           "3Y": {
-            "cagr": 0.4927215,
+            "cagr": 0.6112753,
             "mdd": -0.55143668
           },
           "5Y": {
-            "cagr": 0.27379329,
+            "cagr": 0.34228198,
             "mdd": -0.55143668
           },
           "FULL": {
-            "cagr": 0.2976844,
+            "cagr": 0.32343672,
             "mdd": -0.55143668
           },
           "OOS": {
-            "cagr": 0.36676655,
+            "cagr": 0.41447383,
             "mdd": -0.55143668
           }
         },
         "B50": {
           "10Y": {
-            "cagr": 0.20180143,
+            "cagr": 0.21099171,
             "mdd": -0.29950405
           },
           "1Y": {
-            "cagr": 0.30842371,
+            "cagr": 0.49163031,
             "mdd": -0.25693667
           },
           "3Y": {
-            "cagr": 0.27657506,
+            "cagr": 0.31400126,
             "mdd": -0.29950405
           },
           "5Y": {
-            "cagr": 0.17044193,
+            "cagr": 0.19478085,
             "mdd": -0.29950405
           },
           "FULL": {
-            "cagr": 0.17431088,
+            "cagr": 0.18313418,
             "mdd": -0.29950405
           },
           "OOS": {
-            "cagr": 0.22276421,
+            "cagr": 0.23880965,
             "mdd": -0.29950405
           }
         },
         "B70": {
           "10Y": {
-            "cagr": 0.2680998,
+            "cagr": 0.28354921,
             "mdd": -0.40526991
           },
           "1Y": {
-            "cagr": 0.38302875,
+            "cagr": 0.6785403,
             "mdd": -0.35370837
           },
           "3Y": {
-            "cagr": 0.37306243,
+            "cagr": 0.43604851,
             "mdd": -0.40526991
           },
           "5Y": {
-            "cagr": 0.22135155,
+            "cagr": 0.26038628,
             "mdd": -0.40526991
           },
           "FULL": {
-            "cagr": 0.23099325,
+            "cagr": 0.2453386,
             "mdd": -0.40526991
           },
           "OOS": {
-            "cagr": 0.29241238,
+            "cagr": 0.31878541,
             "mdd": -0.40526991
           }
         },
         "S0": {
           "10Y": {
-            "cagr": 0.35578506,
+            "cagr": 0.38488554,
             "mdd": -0.49295775
           },
           "1Y": {
-            "cagr": 0.41741193,
+            "cagr": 0.92881252,
             "mdd": -0.49295775
           },
           "3Y": {
-            "cagr": 0.48002593,
+            "cagr": 0.59757143,
             "mdd": -0.49295775
           },
           "5Y": {
-            "cagr": 0.32848447,
+            "cagr": 0.39984931,
             "mdd": -0.49295775
           },
           "FULL": {
-            "cagr": 0.31038668,
+            "cagr": 0.33637925,
             "mdd": -0.49295775
           },
           "OOS": {
-            "cagr": 0.439115,
+            "cagr": 0.48922559,
             "mdd": -0.49295775
           }
         },
         "S50": {
           "10Y": {
-            "cagr": 0.35287963,
+            "cagr": 0.38191856,
             "mdd": -0.49295775
           },
           "1Y": {
-            "cagr": 0.41741193,
+            "cagr": 0.92881252,
             "mdd": -0.49295775
           },
           "3Y": {
-            "cagr": 0.48778123,
+            "cagr": 0.60594266,
             "mdd": -0.49295775
           },
           "5Y": {
-            "cagr": 0.30317742,
+            "cagr": 0.37321172,
             "mdd": -0.49295775
           },
           "FULL": {
-            "cagr": 0.3062336,
+            "cagr": 0.33214763,
             "mdd": -0.49295775
           },
           "OOS": {
-            "cagr": 0.40519558,
+            "cagr": 0.45418018,
             "mdd": -0.49295775
           }
         }
       },
       "researchAvailable": true,
       "stairSignal": {
-        "asOf": "2026-11-20",
-        "close": 33790.22,
+        "asOf": "2026-11-24",
+        "close": 37863.95,
         "mode": "FROZEN_HISTORICAL_RESEARCH_ONLY",
-        "nextPivotEstimate": 40028.0,
+        "nextPivotEstimate": 39939.72,
         "pivot": 43986.78,
         "pivotCheck": "FROZEN_MATCHES_MASTER",
         "riskClose": false,
@@ -196,159 +196,159 @@
     "US": {
       "calendarExceptionResearch": false,
       "currentVerification": "NOT_BOOTSTRAPPED",
-      "dataAsOf": "2026-11-20",
+      "dataAsOf": "2026-11-24",
       "etf": "QLD",
       "etfPrice": {
-        "asOf": "2026-11-20",
-        "lastClose": 63.52
+        "asOf": "2026-11-24",
+        "lastClose": 69.07
       },
       "formalAlarm": "NOT_CERTIFIED",
       "index": "NASDAQ100",
       "indexPrice": {
-        "asOf": "2026-11-20",
-        "lastClose": 25028.9805
+        "asOf": "2026-11-24",
+        "lastClose": 26214.168
       },
-      "lagTradingSessions": 1,
+      "lagTradingSessions": 0,
       "observationPolicy": "S50",
-      "observationStatus": "DELAYED_ASOF_OBSERVATION",
+      "observationStatus": "LATEST_ASOF_OBSERVATION",
       "ownerObservedPolicy": null,
       "ownerObservedRevision": null,
       "performance": {
         "B100": {
           "10Y": {
-            "cagr": 0.28238029,
+            "cagr": 0.29258617,
             "mdd": -0.63684479
           },
           "1Y": {
-            "cagr": -0.01237499,
+            "cagr": 0.00643007,
             "mdd": -0.36965364
           },
           "3Y": {
-            "cagr": 0.22511036,
+            "cagr": 0.26306787,
             "mdd": -0.42290017
           },
           "5Y": {
-            "cagr": 0.07353073,
+            "cagr": 0.0921178,
             "mdd": -0.63395227
           },
           "FULL": {
-            "cagr": 0.22654863,
+            "cagr": 0.23145386,
             "mdd": -0.83128872
           },
           "OOS": {
-            "cagr": 0.2270115,
+            "cagr": 0.24160789,
             "mdd": -0.63684479
           }
         },
         "B50": {
           "10Y": {
-            "cagr": 0.15942613,
+            "cagr": 0.16382146,
             "mdd": -0.35448992
           },
           "1Y": {
-            "cagr": 0.00134923,
+            "cagr": 0.00598182,
             "mdd": -0.21607052
           },
           "3Y": {
-            "cagr": 0.12113789,
+            "cagr": 0.1379353,
             "mdd": -0.22054922
           },
           "5Y": {
-            "cagr": 0.06405939,
+            "cagr": 0.07285154,
             "mdd": -0.35187003
           },
           "FULL": {
-            "cagr": 0.13520383,
+            "cagr": 0.13736528,
             "mdd": -0.52606297
           },
           "OOS": {
-            "cagr": 0.13730862,
+            "cagr": 0.14373365,
             "mdd": -0.35448992
           }
         },
         "B70": {
           "10Y": {
-            "cagr": 0.2137826,
+            "cagr": 0.22034977,
             "mdd": -0.47588932
           },
           "1Y": {
-            "cagr": -0.00253072,
+            "cagr": 0.0067243,
             "mdd": -0.28334006
           },
           "3Y": {
-            "cagr": 0.16463956,
+            "cagr": 0.1893807,
             "mdd": -0.30359172
           },
           "5Y": {
-            "cagr": 0.07520446,
+            "cagr": 0.08787275,
             "mdd": -0.47293388
           },
           "FULL": {
-            "cagr": 0.17821704,
+            "cagr": 0.18141914,
             "mdd": -0.67106015
           },
           "OOS": {
-            "cagr": 0.17989362,
+            "cagr": 0.18941784,
             "mdd": -0.47588932
           }
         },
         "S0": {
           "10Y": {
-            "cagr": 0.21004874,
+            "cagr": 0.21967896,
             "mdd": -0.58294816
           },
           "1Y": {
-            "cagr": -0.12532901,
+            "cagr": -0.10867467,
             "mdd": -0.39918462
           },
           "3Y": {
-            "cagr": 0.16475051,
+            "cagr": 0.20083789,
             "mdd": -0.39918462
           },
           "5Y": {
-            "cagr": 0.03687944,
+            "cagr": 0.05487207,
             "mdd": -0.57962636
           },
           "FULL": {
-            "cagr": 0.18609047,
+            "cagr": 0.19085531,
             "mdd": -0.58294816
           },
           "OOS": {
-            "cagr": 0.15221059,
+            "cagr": 0.16603366,
             "mdd": -0.58294816
           }
         },
         "S50": {
           "10Y": {
-            "cagr": 0.24919989,
+            "cagr": 0.25914169,
             "mdd": -0.60092019
           },
           "1Y": {
-            "cagr": -0.06998608,
+            "cagr": -0.05227797,
             "mdd": -0.38337593
           },
           "3Y": {
-            "cagr": 0.19527915,
+            "cagr": 0.2323124,
             "mdd": -0.38337593
           },
           "5Y": {
-            "cagr": 0.05828151,
+            "cagr": 0.07662143,
             "mdd": -0.59774154
           },
           "FULL": {
-            "cagr": 0.21582996,
+            "cagr": 0.22069806,
             "mdd": -0.65530457
           },
           "OOS": {
-            "cagr": 0.19311003,
+            "cagr": 0.20735687,
             "mdd": -0.60092019
           }
         }
       },
       "researchAvailable": true,
       "stairSignal": {
-        "asOf": "2026-11-20",
-        "close": 25028.98,
+        "asOf": "2026-11-24",
+        "close": 26214.17,
         "mode": "FROZEN_HISTORICAL_RESEARCH_ONLY",
         "nextPivotEstimate": 28135.92,
         "pivot": 29727.3,
@@ -376,5 +376,5 @@
       "S0": 0.6747
     }
   },
-  "snapshotId": "06378ab767ed4386deb15c30"
+  "snapshotId": "7aebf74ccfc4607a12a2db9f"
 }
